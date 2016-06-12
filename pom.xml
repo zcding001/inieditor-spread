@@ -1,0 +1,53 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.sirding</groupId>
+	<artifactId>inieditor</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>inieditor</name>
+	<description>A small library to read and edit INI-style configuration files</description>
+    <url>https://github.com/surpass1990/inieditor-spread</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	
+	<scm>
+        <connection>scm:git:git@github.com:surpass1990/inieditor-spread.git</connection>
+        <developerConnection>scm:git:git@github.com:surpass1990/inieditor-spread.git</developerConnection>
+        <url>git@github.com:surpass1990/inieditor-spread.git</url>
+    </scm>
+    
+	<developers>
+        <developer>
+            <id>surpass1990</id>
+            <name>sirding</name>
+            <email>iamdzc@sina.com</email>
+            <url>https://github.com/surpass1990</url>
+        </developer>
+    </developers>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.9.10</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.nikhaldimann</groupId>
+			<artifactId>inieditor</artifactId>
+			<version>r5</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<!-- Using non-standard directories, because this started out as an ant 
+			project initially and we don't want to shuffle around directories right now -->
+		<sourceDirectory>src</sourceDirectory>
+		<testSourceDirectory>test</testSourceDirectory>
+	</build>
+</project>
