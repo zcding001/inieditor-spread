@@ -8,11 +8,10 @@ import java.util.Map;
 
 /**
  * 
- * obj					含有{ @link Se }注解的对象
+ * obj					含有{ @link Options }注解的对象
  * sectionNameField 	对象中对应节点名称的属性字段
- * sectionOptionsList	对象中对应节点下所有属性的字段
- * 
- * sectionOptionsMap	Se注解中name对应的属性字段，不包括sectionNameField属性字段
+ * sectionOptionsList	对象中对应节点下所有key的字段
+ * sectionOptionsMap	Options注解中key对应的属性字段，不包括sectionNameField属性字段
  * 
  * @author surpassE
  *
@@ -22,7 +21,6 @@ public class SectionField {
 	private Object obj;
 	private Field sectionNameField;
 	private List<Field> sectionOptionsList = new ArrayList<Field>();
-	
 	private Map<String, Field> sectionOptionsMap = new HashMap<String, Field>();
 	
 	

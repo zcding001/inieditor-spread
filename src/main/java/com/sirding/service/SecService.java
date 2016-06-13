@@ -14,7 +14,7 @@ public interface SecService {
 
 	/**
 	 * 保存.conf .ini数据到文件中
-	 * @param obj 对象中含有FILE_PATH属性存放文件路径
+	 * @param obj 对象中含有CONF_FILE_PATH属性存放文件路径
 	 */
 	public void saveSec(Object obj) throws Exception;
 	
@@ -33,7 +33,7 @@ public interface SecService {
 	public void saveSec(Object obj, IniEditor iniEditor) throws Exception;
 	
 	/**
-	 * 将文件中内容加载到对象中，clazz类型的对象中含有FILE_PATH属性存放文件路径
+	 * 将文件中内容加载到对象中，clazz类型的对象中含有CONF_FILE_PATH属性存放文件路径
 	 * @param clazz 新对象的class类型
 	 * @return
 	 * @throws Exception
@@ -41,7 +41,7 @@ public interface SecService {
 	public List<Object> loadSec(Class<?> clazz) throws Exception;
 	
 	/**
-	 * 将文件中内容加载到对象中, clazz类型的对象中含有FILE_PATH属性存放文件路径
+	 * 将文件中内容加载到对象中, clazz类型的对象中含有CONF_FILE_PATH属性存放文件路径
 	 * @param clazz 新对象的class类型
 	 * @param flag 0:去除params中匹配的数据
 	 * 			   1:只加载params中匹配的节点数据
@@ -92,14 +92,14 @@ public interface SecService {
 	public List<Object> loadSec(Class<?> clazz, IniEditor iniEditor, String flag, String... params) throws Exception;
 	
 	/**
-	 * 将文件中内容加载到已存在的对象中, obj中含有FILE_PATH属性存放文件路径
+	 * 将文件中内容加载到已存在的对象中, obj中含有CONF_FILE_PATH属性存放文件路径
 	 * @param obj 已有值的对象
 	 * @return
 	 * @throws Exception
 	 */
 	public List<Object> loadSec(Object obj) throws Exception;
 	/**
-	 * 将文件中内容加载到已存在的对象中, obj中含有FILE_PATH属性存放文件路径
+	 * 将文件中内容加载到已存在的对象中, obj中含有CONF_FILE_PATH属性存放文件路径
 	 * @param obj 已有值的对象
 	 * @param flag 0:去除params中匹配的数据
 	 * 			   1:只加载params中匹配的节点数据

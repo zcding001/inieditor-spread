@@ -135,4 +135,26 @@ public class ReflectUtil {
 		String upperCaseHead = head.toUpperCase();
 		return fieldName.replaceFirst(head, upperCaseHead);
 	}
+	
+	/**
+	 * 获得指定的属性值
+	 * @param obj
+	 * @param fieldName 属性名称
+	 * @return
+	 */
+	public static Object getFieldValue(Object obj, String fieldName){
+		Field[] fields = obj.getClass().getDeclaredFields();
+		if(fields != null){
+			for(Field field : fields){
+				if(fieldName != null && fieldName.equals(field.getName())){
+					try {
+						return field.get(obj);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}
+		return null;
+	}
 }
