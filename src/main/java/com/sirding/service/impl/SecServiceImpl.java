@@ -1,7 +1,11 @@
 package com.sirding.service.impl;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
+import org.apache.log4j.Logger;
 
 import com.sirding.IniEditor;
 import com.sirding.annotation.AssertKey;
@@ -16,6 +20,7 @@ import com.sirding.util.ReflectUtil;
 
 public class SecServiceImpl implements SecService {
 	private static final String FILE_PATH = "CONF_FILE_PATH";
+	private static Logger logger = Logger.getLogger(SecServiceImpl.class);
 	
 	public void saveSec(Object obj) throws Exception{
 		String filePath = (String)ReflectUtil.getFieldValue(obj, FILE_PATH);
@@ -63,13 +68,11 @@ public class SecServiceImpl implements SecService {
 	}
 
 	public List<Object> loadSec(Class<?> clazz, IniEditor iniEditor) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return this.getSections(iniEditor, null, clazz, null);
 	}
 
 	public List<Object> loadSec(Class<?> clazz, IniEditor iniEditor, String flag, String... params) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return this.getSections(iniEditor, null, clazz, flag, params);
 	}
 
 	public List<Object> loadSec(Object obj) throws Exception {
@@ -78,7 +81,7 @@ public class SecServiceImpl implements SecService {
 			List<Object> list = this.loadSec(obj, filePath);
 			return list;
 		}
-		return null;
+		return new ArrayList<Object>();
 	}
 
 	public List<Object> loadSec(Object obj, String flag, String... params) throws Exception {
@@ -87,7 +90,7 @@ public class SecServiceImpl implements SecService {
 			List<Object> list = this.loadSec(obj, filePath, flag, params);
 			return list;
 		}
-		return null;
+		return new ArrayList<Object>();
 	}
 
 	public List<Object> loadSec(Object obj, String filePath) throws Exception {
@@ -97,7 +100,7 @@ public class SecServiceImpl implements SecService {
 			iniEditor.save(filePath);
 			return list;
 		}
-		return null;
+		return new ArrayList<Object>();
 	}
 
 	public List<Object> loadSec(Object obj, String filePath, String flag, String... params) throws Exception {
@@ -107,17 +110,15 @@ public class SecServiceImpl implements SecService {
 			iniEditor.save(filePath);
 			return list;
 		}
-		return null;
+		return new ArrayList<Object>();
 	}
 
 	public List<Object> loadSec(Object obj, IniEditor iniEditor) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return this.getSections(iniEditor, obj, null, null);
 	}
 
 	public List<Object> loadSec(Object obj, IniEditor iniEditor, String flag, String... params) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return this.getSections(iniEditor, obj, null, flag, params);
 	}
 	
 	/**
@@ -282,6 +283,126 @@ public class SecServiceImpl implements SecService {
 				section.getIgnoreSet().add(param);
 			}
 		}
+	}
+	
+	
+	
+	/**
+	 * 
+	 * 解析section并设置obj属性值
+	 * 
+	 * @param iniEditor 
+	 * @param obj 存储属性值的现有对象
+	 * @param clazz 对象的Class类型
+	 * @param flag 0：删除params中指定的节点名称 1：保留params中指定的节点名称
+	 * @param params 节点名称
+	 * @return
+	 */
+	private List<Object> getSections(IniEditor iniEditor, Object existObj, Class<?> clazz, String flag, String... params){
+		List<Object> objList = new ArrayList<Object>();
+		List<Section> sectionList = this.getSectionAssignedOrExcept(iniEditor, flag, params);
+		try {
+			for(Section section : sectionList){
+				Object obj = null;
+				if(existObj == null && clazz != null){
+					obj = clazz.newInstance();
+				}else{
+					obj = existObj;
+				}
+				//获得obj下所有含@Option注解的属性及对应关系
+				SectionField sectionField = this.getSectionField(obj);
+				
+				//设置默认的sectionName值
+				Field sectionNameField = sectionField.getSectionNameField();
+				ReflectUtil.callSetMethod(obj, sectionNameField, section.getSectionName());
+				
+				//设置section节点下对应属性的值
+				Map<String, Options> map = section.getSectionOptMap();
+				for(String name : map.keySet()){
+					String value = map.get(name).getValue();
+					Field sectionOptionsField = sectionField.getSectionOptionsMap().get(name);
+					logger.debug(sectionOptionsField + "-" + name);
+					ReflectUtil.callSetMethod(obj, sectionOptionsField, value);
+				}
+				objList.add(obj);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return objList;
+	}
+	
+	
+	/**
+	 * 取config中包含params中的节点对象，或是取config配置文件中剔除params中指定的节点名的对象
+	 * 
+	 * @param iniEditor
+	 * @param flag 0：剔除params中指定的节点对象 1：只保存params中指定的节点对象
+	 * @param params 节点名称的集合
+	 * @return
+	 */
+	private List<Section> getSectionAssignedOrExcept(IniEditor iniEditor, String flag, String... params){
+		List<Section> sectionList = new ArrayList<Section>();
+		List<String> sectionNameList = iniEditor.sectionNames();
+		if(sectionNameList != null){
+			for(String sectionName : sectionNameList){
+				if(this.containSection(sectionName, flag, params)){
+					sectionList.add(this.getSingleSection(iniEditor, sectionName));
+				}
+			}
+		}
+		return sectionList;
+	}
+	
+	/**
+	 * 加载指定sectionname的节点对象
+	 * 
+	 * @param iniEditor
+	 * @param sectionName 节点名称
+	 * @return
+	 */
+	private Section getSingleSection(IniEditor iniEditor, String sectionName){
+		Section section = new Section();
+		section.setSectionName(sectionName);
+		List<String> optList = iniEditor.optionNames(sectionName);
+		if(optList != null){
+			for(String optName : optList){
+				Options opt = new Options();
+				opt.setName(optName);
+				opt.setValue(iniEditor.get(sectionName, optName));
+				section.getSectionOptMap().put(optName, opt);
+				section.getSectionOptOrder().add(optName);
+			}
+		}
+		return section;
+	}
+	
+	/**
+	 * 根据flag判断sectionName是否为要查询的节点名称，true：是  false：否
+	 * @param sectionName 节点名称
+	 * @param flag 保留或是提出params中指定的节点信息
+	 * @param params 要保留或是删除的属性值
+	 * @return
+	 */
+	private boolean containSection(String sectionName, String flag, String... params){
+		if((params != null && params.length > 0) && flag != null && flag.length() >= 0){
+			if("1".equals(flag)){
+				for(String tmp : params){
+					if(sectionName != null && sectionName.equals(tmp)){
+						return true;
+					}
+				}
+				return false;
+			}else if("0".equals(flag)){
+				for(int i = 0; i < params.length; i++){
+					if(sectionName != null && sectionName.equals(params[i])){
+						return false;
+					}
+				}
+				return true;
+			}
+		}
+		return true;
 	}
 
 }
