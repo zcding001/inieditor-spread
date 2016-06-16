@@ -24,9 +24,7 @@ public class SecServiceImpl implements SecService {
 	
 	public void saveSec(Object obj) throws Exception{
 		String filePath = (String)ReflectUtil.getFieldValue(obj, FILE_PATH);
-		if(filePath == null || filePath.length() <= 0){
-			System.out.println("ERROR-Exception=======没有CONF_FILE_PATH属性或配置文件不存在======");
-		}else{
+		if(this.filePathIsExist(filePath)){
 			this.saveSec(obj, filePath);
 		}
 	}
@@ -38,6 +36,9 @@ public class SecServiceImpl implements SecService {
 		iniEditor.save(filePath);
 	}
 
+	/**
+	 * 配置保存的核心入口
+	 */
 	public synchronized void saveSec(Object obj, IniEditor iniEditor) throws Exception {
 		
 	}
@@ -45,21 +46,19 @@ public class SecServiceImpl implements SecService {
 	public synchronized <E> List<E> loadSec(Class<?> clazz) throws Exception {
 		Object obj = clazz.newInstance();
 		String filePath = (String)ReflectUtil.getFieldValue(obj, FILE_PATH);
-		if(filePath == null || filePath.length() <= 0){
-			System.out.println("ERROR-Exception=======没有CONF_FILE_PATH属性或配置文件不存在======");
-			return null;
+		if(this.filePathIsExist(filePath)){
+			return this.loadSec(clazz, filePath);
 		}
-		return this.loadSec(clazz, filePath);
+		return new ArrayList<E>();
 	}
 
 	public synchronized <E> List<E> loadSec(Class<?> clazz, String flag, String... params) throws Exception {
 		Object obj = clazz.newInstance();
 		String filePath = (String)ReflectUtil.getFieldValue(obj, FILE_PATH);
-		if(filePath == null || filePath.length() <= 0){
-			System.out.println("ERROR-Exception=======没有CONF_FILE_PATH属性或配置文件不存在======");
-			return null;
+		if(this.filePathIsExist(filePath)){
+			return this.loadSec(clazz, filePath, flag, params);
 		}
-		return this.loadSec(clazz, filePath, flag, params);
+		return new ArrayList<E>();
 	}
 
 	public <E> List<E> loadSec(Class<?> clazz, String filePath) throws Exception {
@@ -87,12 +86,9 @@ public class SecServiceImpl implements SecService {
 	public <E> List<E> loadSec(Object obj) throws Exception {
 		if(obj != null){
 			String filePath = (String)ReflectUtil.getFieldValue(obj, FILE_PATH);
-			if(filePath == null || filePath.length() <= 0){
-				System.out.println("ERROR-Exception=======没有CONF_FILE_PATH属性或配置文件不存在======");
-				return null;
+			if(this.filePathIsExist(filePath)){
+				return this.loadSec(obj, filePath);
 			}
-			List<E> list = this.loadSec(obj, filePath);
-			return list;
 		}
 		return new ArrayList<E>();
 	}
@@ -100,12 +96,9 @@ public class SecServiceImpl implements SecService {
 	public <E> List<E> loadSec(Object obj, String flag, String... params) throws Exception {
 		if(obj != null){
 			String filePath = (String)ReflectUtil.getFieldValue(obj, FILE_PATH);
-			if(filePath == null || filePath.length() <= 0){
-				System.out.println("ERROR-Exception=======没有CONF_FILE_PATH属性或配置文件不存在======");
-				return null;
+			if(this.filePathIsExist(filePath)){
+				return this.loadSec(obj, filePath, flag, params);
 			}
-			List<E> list = this.loadSec(obj, filePath, flag, params);
-			return list;
 		}
 		return new ArrayList<E>();
 	}
@@ -130,10 +123,16 @@ public class SecServiceImpl implements SecService {
 		return new ArrayList<E>();
 	}
 
+	/**
+	 * 加载配置文件关键接口
+	 */
 	public <E> List<E> loadSec(Object obj, IniEditor iniEditor) throws Exception {
 		return this.getSections(iniEditor, obj, null, null);
 	}
 
+	/**
+	 * 加载配置问价关键接口
+	 */
 	public <E> List<E> loadSec(Object obj, IniEditor iniEditor, String flag, String... params) throws Exception {
 		return this.getSections(iniEditor, obj, null, flag, params);
 	}
@@ -419,6 +418,19 @@ public class SecServiceImpl implements SecService {
 				}
 				return true;
 			}
+		}
+		return true;
+	}
+	
+	/**
+	 * 判断要操作的文件是否存在
+	 * @param filePath
+	 * @return
+	 */
+	private boolean filePathIsExist(String filePath){
+		if(filePath == null || filePath.length() <= 0){
+			logger.error("ERROR-Exception=======没有CONF_FILE_PATH属性或配置文件不存在======");
+			return false;
 		}
 		return true;
 	}
