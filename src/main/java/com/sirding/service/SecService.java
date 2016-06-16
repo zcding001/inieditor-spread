@@ -2,7 +2,7 @@ package com.sirding.service;
 
 import java.util.List;
 
-import com.sirding.IniEditor;
+import com.sirding.thirdjar.IniEditor;
 
 /**
  * 读、写.conf、.ini文件
@@ -38,7 +38,7 @@ public interface SecService {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<Object> loadSec(Class<?> clazz) throws Exception;
+	public <E> List<E> loadSec(Class<?> clazz) throws Exception;
 	
 	/**
 	 * 将文件中内容加载到对象中, clazz类型的对象中含有CONF_FILE_PATH属性存放文件路径
@@ -49,7 +49,7 @@ public interface SecService {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<Object> loadSec(Class<?> clazz, String flag, String... params) throws Exception;
+	public <E> List<E> loadSec(Class<?> clazz, String flag, String... params) throws Exception;
 	
 	/**
 	 * 将文件中内容加载到对象中
@@ -58,7 +58,7 @@ public interface SecService {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<Object> loadSec(Class<?> clazz, String filePath) throws Exception;
+	public <E> List<E> loadSec(Class<?> clazz, String filePath) throws Exception;
 	/**
 	 * 将文件中内容加载到对象中
 	 * @param clazz 新对象的class类型
@@ -69,7 +69,7 @@ public interface SecService {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<Object> loadSec(Class<?> clazz, String filePath, String flag, String... params) throws Exception;
+	public <E> List<E> loadSec(Class<?> clazz, String filePath, String flag, String... params) throws Exception;
 
 	/**
 	 * 将文件中内容加载到对象中
@@ -78,7 +78,7 @@ public interface SecService {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<Object> loadSec(Class<?> clazz, IniEditor iniEditor) throws Exception;
+	public <E> List<E> loadSec(Class<?> clazz, IniEditor iniEditor) throws Exception;
 	/**
 	 * 将文件中内容加载到对象中
 	 * @param clazz 新对象的class类型
@@ -89,7 +89,7 @@ public interface SecService {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<Object> loadSec(Class<?> clazz, IniEditor iniEditor, String flag, String... params) throws Exception;
+	public <E> List<E> loadSec(Class<?> clazz, IniEditor iniEditor, String flag, String... params) throws Exception;
 	
 	/**
 	 * 将文件中内容加载到已存在的对象中, obj中含有CONF_FILE_PATH属性存放文件路径
@@ -97,7 +97,7 @@ public interface SecService {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<Object> loadSec(Object obj) throws Exception;
+	public <E> List<E> loadSec(Object obj) throws Exception;
 	/**
 	 * 将文件中内容加载到已存在的对象中, obj中含有CONF_FILE_PATH属性存放文件路径
 	 * @param obj 已有值的对象
@@ -107,7 +107,7 @@ public interface SecService {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<Object> loadSec(Object obj, String flag, String... params) throws Exception;
+	public <E> List<E> loadSec(Object obj, String flag, String... params) throws Exception;
 	/**
 	 * 将文件中内容加载到已存在的对象中
 	 * @param obj 已有值的对象
@@ -115,7 +115,7 @@ public interface SecService {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<Object> loadSec(Object obj, String filePath) throws Exception;
+	public <E> List<E> loadSec(Object obj, String filePath) throws Exception;
 	/**
 	 * 将文件中内容加载到已存在的对象中
 	 * @param obj 已有值的对象
@@ -126,7 +126,7 @@ public interface SecService {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<Object> loadSec(Object obj, String filePath, String flag, String... params) throws Exception;
+	public <E> List<E> loadSec(Object obj, String filePath, String flag, String... params) throws Exception;
 
 	/**
 	 * 将文件中内容加载到已存在的对象中
@@ -135,7 +135,7 @@ public interface SecService {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<Object> loadSec(Object obj, IniEditor iniEditor) throws Exception;
+	public <E> List<E> loadSec(Object obj, IniEditor iniEditor) throws Exception;
 	/**
 	 * 将文件中内容加载到已存在的对象中
 	 * @param obj 已有值的对象
@@ -146,6 +146,12 @@ public interface SecService {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<Object> loadSec(Object obj, IniEditor iniEditor, String flag, String... params) throws Exception;
+	public <E> List<E> loadSec(Object obj, IniEditor iniEditor, String flag, String... params) throws Exception;
 	
+	/**
+	 * 泛型测试接口
+	 * @param clazz
+	 * @return
+	 */
+	public <E> List<E> loadList(Class<?> clazz);  
 }

@@ -10,3 +10,50 @@
 [INFO][2016-06-15 10:29:54,455][com.sirding.test.TestIniEditorSpread]c:/yrtz/project4ecplise/inieditor-spread/target/test-classes/test.ini	null	0
 [INFO][2016-06-15 10:29:54,467][com.sirding.test.TestIniEditorSpread]true
 [INFO][2016-06-15 10:29:54,467][com.sirding.test.TestIniEditorSpread]C:/yrtz/project4ecplise/inieditor-spread/target/test-classes/test.ini
+[INFO][2016-06-16 08:55:18,832][com.sirding.test.TestIniEditorSpread]c:/yrtz/project4ecplise/inieditor-spread/target/test-classes/test.ini	null	0
+[INFO][2016-06-16 08:55:18,847][com.sirding.test.TestIniEditorSpread]true
+[INFO][2016-06-16 08:55:18,848][com.sirding.test.TestIniEditorSpread]C:/yrtz/project4ecplise/inieditor-spread/target/test-classes/test.ini
+[INFO][2016-06-16 08:57:41,422][com.sirding.test.TestIniEditorSpread]c:/yrtz/project4ecplise/inieditor-spread/target/test-classes/test.ini	null	0
+[INFO][2016-06-16 08:57:41,429][com.sirding.test.TestIniEditorSpread]true
+[INFO][2016-06-16 08:57:41,429][com.sirding.test.TestIniEditorSpread]C:/yrtz/project4ecplise/inieditor-spread/target/test-classes/test.ini
+[INFO][2016-06-16 08:59:04,786][com.sirding.test.TestIniEditorSpread]c:/yrtz/project4ecplise/inieditor-spread/target/test-classes/test.ini	null	0
+[INFO][2016-06-16 08:59:04,797][com.sirding.test.TestIniEditorSpread]true
+[INFO][2016-06-16 08:59:04,798][com.sirding.test.TestIniEditorSpread]C:/yrtz/project4ecplise/inieditor-spread/target/test-classes/test.ini
+[INFO][2016-06-16 09:01:31,098][com.sirding.test.TestIniEditorSpread]c:/yrtz/project4ecplise/inieditor-spread/target/test-classes/test.ini	null	0
+[INFO][2016-06-16 09:01:31,107][com.sirding.test.TestIniEditorSpread]true
+[INFO][2016-06-16 09:01:31,107][com.sirding.test.TestIniEditorSpread]C:/yrtz/project4ecplise/inieditor-spread/target/test-classes/test.ini
+[INFO][2016-06-16 09:04:33,119][com.sirding.test.TestIniEditorSpread]c:/yrtz/project4ecplise/inieditor-spread/target/test-classes/test.ini	null	0
+[INFO][2016-06-16 09:04:33,127][com.sirding.test.TestIniEditorSpread]true
+[INFO][2016-06-16 09:04:33,128][com.sirding.test.TestIniEditorSpread]C:/yrtz/project4ecplise/inieditor-spread/target/test-classes/test.ini
+[INFO][2016-06-16 09:06:54,830][com.sirding.test.TestIniEditorSpread]c:/yrtz/project4ecplise/inieditor-spread/target/test-classes/test.ini	null	0
+[INFO][2016-06-16 09:06:54,841][com.sirding.test.TestIniEditorSpread]true
+[INFO][2016-06-16 09:06:54,842][com.sirding.test.TestIniEditorSpread]C:/yrtz/project4ecplise/inieditor-spread/target/test-classes/test.ini
+[INFO][2016-06-16 09:11:28,516][com.sirding.test.TestIniEditorSpread]c:/yrtz/project4ecplise/inieditor-spread/target/test-classes/test.ini
+[INFO][2016-06-16 09:13:55,856][com.sirding.test.TestIniEditorSpread]C:/yrtz/project4ecplise/inieditor-spread/target/test-classes/test.ini
+[INFO][2016-06-16 09:13:55,869][com.sirding.test.TestIniEditorSpread]c:/yrtz/project4ecplise/inieditor-spread/target/test-classes/test.ini
+[INFO][2016-06-16 09:16:17,768][com.sirding.test.TestIniEditorSpread]C:/yrtz/project4ecplise/inieditor-spread/target/test-classes/test.ini
+[INFO][2016-06-16 09:16:17,803][com.sirding.test.TestIniEditorSpread]one
+[INFO][2016-06-16 09:16:17,803][com.sirding.test.TestIniEditorSpread]two
+[INFO][2016-06-16 09:16:17,804][com.sirding.test.TestIniEditorSpread]three
+[INFO][2016-06-16 09:16:27,885][com.sirding.test.TestIniEditorSpread]one	one123	0
+[INFO][2016-06-16 09:16:27,909][com.sirding.test.TestIniEditorSpread]two	two123	0
+[INFO][2016-06-16 09:16:27,910][com.sirding.test.TestIniEditorSpread]three	three123	0
+[INFO][2016-06-16 09:16:27,910][com.sirding.test.TestIniEditorSpread]true
+[INFO][2016-06-16 09:16:27,911][com.sirding.test.TestIniEditorSpread]C:/yrtz/project4ecplise/inieditor-spread/target/test-classes/test.ini
+[INFO][2016-06-16 09:33:56,662][com.sirding.test.TestIniEditorSpread]one	123456	0
+[INFO][2016-06-16 09:33:56,685][com.sirding.test.TestIniEditorSpread]two	test@123	0
+[INFO][2016-06-16 09:33:56,687][com.sirding.test.TestIniEditorSpread]three	111111	0
+[INFO][2016-06-16 09:33:56,689][com.sirding.test.TestIniEditorSpread]C:/yrtz/project4ecplise/inieditor-spread/target/test-classes/test.ini
+[INFO][2016-06-16 10:24:00,428][com.sirding.test.TestIniEditorSpread]0
+[INFO][2016-06-16 10:24:00,436][com.sirding.test.TestIniEditorSpread]1
+[INFO][2016-06-16 10:24:00,436][com.sirding.test.TestIniEditorSpread]2
+[INFO][2016-06-16 10:24:00,437][com.sirding.test.TestIniEditorSpread]3
+[INFO][2016-06-16 10:24:00,437][com.sirding.test.TestIniEditorSpread]4
+[INFO][2016-06-16 10:34:12,846][com.sirding.test.TestIniEditorSpread]one	123456	0
+[INFO][2016-06-16 10:34:12,853][com.sirding.test.TestIniEditorSpread]two	test@123	0
+[INFO][2016-06-16 10:34:12,854][com.sirding.test.TestIniEditorSpread]three	111111	0
+[INFO][2016-06-16 10:34:12,854][com.sirding.test.TestIniEditorSpread]C:/yrtz/project4ecplise/inieditor-spread/target/test-classes/test.ini
+[INFO][2016-06-16 10:35:12,549][com.sirding.test.TestIniEditorSpread]one	123456	0
+[INFO][2016-06-16 10:35:12,554][com.sirding.test.TestIniEditorSpread]two	test@123	0
+[INFO][2016-06-16 10:35:12,554][com.sirding.test.TestIniEditorSpread]three	111111	0
+[INFO][2016-06-16 10:35:12,554][com.sirding.test.TestIniEditorSpread]C:/yrtz/project4ecplise/inieditor-spread/target/test-classes/test.ini

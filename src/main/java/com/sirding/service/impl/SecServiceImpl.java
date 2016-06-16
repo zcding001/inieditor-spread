@@ -7,7 +7,6 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
-import com.sirding.IniEditor;
 import com.sirding.annotation.AssertKey;
 import com.sirding.annotation.IgnoreKey;
 import com.sirding.annotation.Option;
@@ -15,6 +14,7 @@ import com.sirding.model.Options;
 import com.sirding.model.Section;
 import com.sirding.model.SectionField;
 import com.sirding.service.SecService;
+import com.sirding.thirdjar.IniEditor;
 import com.sirding.util.ReflectUtil;
 
 
@@ -32,7 +32,8 @@ public class SecServiceImpl implements SecService {
 	}
 
 	public void saveSec(Object obj, String filePath) throws Exception {
-		IniEditor iniEditor = new IniEditor(filePath);
+		IniEditor iniEditor = new IniEditor();
+		iniEditor.load(filePath);
 		this.saveSec(obj, iniEditor);
 		iniEditor.save(filePath);
 	}
@@ -41,94 +42,110 @@ public class SecServiceImpl implements SecService {
 		
 	}
 
-	public synchronized List<Object> loadSec(Class<?> clazz) throws Exception {
+	public synchronized <E> List<E> loadSec(Class<?> clazz) throws Exception {
 		Object obj = clazz.newInstance();
 		String filePath = (String)ReflectUtil.getFieldValue(obj, FILE_PATH);
+		if(filePath == null || filePath.length() <= 0){
+			System.out.println("ERROR-Exception=======没有CONF_FILE_PATH属性或配置文件不存在======");
+			return null;
+		}
 		return this.loadSec(clazz, filePath);
 	}
 
-	public synchronized List<Object> loadSec(Class<?> clazz, String flag, String... params) throws Exception {
+	public synchronized <E> List<E> loadSec(Class<?> clazz, String flag, String... params) throws Exception {
 		Object obj = clazz.newInstance();
 		String filePath = (String)ReflectUtil.getFieldValue(obj, FILE_PATH);
+		if(filePath == null || filePath.length() <= 0){
+			System.out.println("ERROR-Exception=======没有CONF_FILE_PATH属性或配置文件不存在======");
+			return null;
+		}
 		return this.loadSec(clazz, filePath, flag, params);
 	}
 
-	public List<Object> loadSec(Class<?> clazz, String filePath) throws Exception {
-		IniEditor iniEditor = new IniEditor(filePath);
-		List<Object> list = this.loadSec(clazz, iniEditor);
-		iniEditor.save(filePath);
+	public <E> List<E> loadSec(Class<?> clazz, String filePath) throws Exception {
+		IniEditor iniEditor = new IniEditor();
+		iniEditor.load(filePath);
+		List<E> list = this.loadSec(clazz, iniEditor);
+		return list;
+	}
+	
+	public <E> List<E> loadSec(Class<?> clazz, String filePath, String flag, String... params) throws Exception {
+		IniEditor iniEditor = new IniEditor();
+		iniEditor.load(filePath);
+		List<E> list = this.loadSec(clazz, iniEditor, flag, params);
 		return list;
 	}
 
-	public List<Object> loadSec(Class<?> clazz, String filePath, String flag, String... params) throws Exception {
-		IniEditor iniEditor = new IniEditor(filePath);
-		List<Object> list = this.loadSec(clazz, iniEditor, flag, params);
-		iniEditor.save(filePath);
-		return list;
-	}
-
-	public List<Object> loadSec(Class<?> clazz, IniEditor iniEditor) throws Exception {
+	public <E> List<E> loadSec(Class<?> clazz, IniEditor iniEditor) throws Exception {
 		return this.getSections(iniEditor, null, clazz, null);
 	}
 
-	public List<Object> loadSec(Class<?> clazz, IniEditor iniEditor, String flag, String... params) throws Exception {
+	public <E> List<E> loadSec(Class<?> clazz, IniEditor iniEditor, String flag, String... params) throws Exception {
 		return this.getSections(iniEditor, null, clazz, flag, params);
 	}
 
-	public List<Object> loadSec(Object obj) throws Exception {
+	public <E> List<E> loadSec(Object obj) throws Exception {
 		if(obj != null){
 			String filePath = (String)ReflectUtil.getFieldValue(obj, FILE_PATH);
-			List<Object> list = this.loadSec(obj, filePath);
+			if(filePath == null || filePath.length() <= 0){
+				System.out.println("ERROR-Exception=======没有CONF_FILE_PATH属性或配置文件不存在======");
+				return null;
+			}
+			List<E> list = this.loadSec(obj, filePath);
 			return list;
 		}
-		return new ArrayList<Object>();
+		return new ArrayList<E>();
 	}
 
-	public List<Object> loadSec(Object obj, String flag, String... params) throws Exception {
+	public <E> List<E> loadSec(Object obj, String flag, String... params) throws Exception {
 		if(obj != null){
 			String filePath = (String)ReflectUtil.getFieldValue(obj, FILE_PATH);
-			List<Object> list = this.loadSec(obj, filePath, flag, params);
+			if(filePath == null || filePath.length() <= 0){
+				System.out.println("ERROR-Exception=======没有CONF_FILE_PATH属性或配置文件不存在======");
+				return null;
+			}
+			List<E> list = this.loadSec(obj, filePath, flag, params);
 			return list;
 		}
-		return new ArrayList<Object>();
+		return new ArrayList<E>();
 	}
 
-	public List<Object> loadSec(Object obj, String filePath) throws Exception {
+	public <E> List<E> loadSec(Object obj, String filePath) throws Exception {
 		if(obj != null){
-			IniEditor iniEditor = new IniEditor(filePath);
-			List<Object> list = this.loadSec(obj, iniEditor);
-			iniEditor.save(filePath);
+			IniEditor iniEditor = new IniEditor();
+			iniEditor.load(filePath);
+			List<E> list = this.loadSec(obj, iniEditor);
 			return list;
 		}
-		return new ArrayList<Object>();
+		return new ArrayList<E>();
 	}
 
-	public List<Object> loadSec(Object obj, String filePath, String flag, String... params) throws Exception {
+	public <E> List<E> loadSec(Object obj, String filePath, String flag, String... params) throws Exception {
 		if(obj != null){
-			IniEditor iniEditor = new IniEditor(filePath);
-			List<Object> list = this.loadSec(obj, iniEditor, flag, params);
-			iniEditor.save(filePath);
+			IniEditor iniEditor = new IniEditor();
+			iniEditor.load(filePath);
+			List<E> list = this.loadSec(obj, iniEditor, flag, params);
 			return list;
 		}
-		return new ArrayList<Object>();
+		return new ArrayList<E>();
 	}
 
-	public List<Object> loadSec(Object obj, IniEditor iniEditor) throws Exception {
+	public <E> List<E> loadSec(Object obj, IniEditor iniEditor) throws Exception {
 		return this.getSections(iniEditor, obj, null, null);
 	}
 
-	public List<Object> loadSec(Object obj, IniEditor iniEditor, String flag, String... params) throws Exception {
+	public <E> List<E> loadSec(Object obj, IniEditor iniEditor, String flag, String... params) throws Exception {
 		return this.getSections(iniEditor, obj, null, flag, params);
 	}
 	
 	/**
 	 * 
-	 * 获得obj中含有@Se注解的所有属性
+	 * 获得obj中含有@Option注解的所有属性
 	 * 
 	 * @param obj
 	 * @return
 	 */
-	public SectionField getSectionField(Object obj){
+	private SectionField getSectionField(Object obj){
 		SectionField sectionField = null;
 		try {
 			sectionField = new SectionField();
@@ -168,7 +185,7 @@ public class SecServiceImpl implements SecService {
 	 * @param sectionField
 	 * @return
 	 */
-	public Section getSection(SectionField sectionField){
+	private Section getSection(SectionField sectionField){
 		Section section = new Section();
 		Object obj = sectionField.getObj();
 		//获得节点name的属性
@@ -298,8 +315,9 @@ public class SecServiceImpl implements SecService {
 	 * @param params 节点名称
 	 * @return
 	 */
-	private List<Object> getSections(IniEditor iniEditor, Object existObj, Class<?> clazz, String flag, String... params){
-		List<Object> objList = new ArrayList<Object>();
+	@SuppressWarnings("unchecked")
+	private <E> List<E> getSections(IniEditor iniEditor, Object existObj, Class<?> clazz, String flag, String... params){
+		List<E> objList = new ArrayList<E>();
 		List<Section> sectionList = this.getSectionAssignedOrExcept(iniEditor, flag, params);
 		try {
 			for(Section section : sectionList){
@@ -324,7 +342,7 @@ public class SecServiceImpl implements SecService {
 					logger.debug(sectionOptionsField + "-" + name);
 					ReflectUtil.callSetMethod(obj, sectionOptionsField, value);
 				}
-				objList.add(obj);
+				objList.add((E)obj);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -405,4 +423,17 @@ public class SecServiceImpl implements SecService {
 		return true;
 	}
 
+	@SuppressWarnings("unchecked")
+	public <E> List<E> loadList(Class<?> clazz) {
+		try {
+			List<E> list = new ArrayList<E>();
+			for(int i = 0; i < 5; i++){
+				list.add((E)(clazz.newInstance()));
+			}
+			return list;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return new ArrayList<E>();
+	}
 }
