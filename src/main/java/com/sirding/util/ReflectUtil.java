@@ -5,7 +5,10 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 public class ReflectUtil {
+	private static Logger logger = Logger.getLogger(ReflectUtil.class);
 
 	/**
 	 * 执行setXXX方法
@@ -65,13 +68,15 @@ public class ReflectUtil {
 	 */
 	public static Object callIsOrGetMethod(Object obj, Field field){
 		Object value = null;
+		String fieldName = null;
+		String methodName = null;
 		try {
 			if(obj != null){
 				Class<?> clazz = obj.getClass();
-				Object type = field .getType();
+				Object type = field.getType();
 				//属性名称
-				String fieldName = field.getName();
-				String methodName = null;
+				fieldName = field.getName();
+				methodName = null;
 				if(type instanceof Boolean && fieldName.startsWith("is")){
 					methodName = getIsMethod(fieldName);
 				}else{
@@ -80,7 +85,9 @@ public class ReflectUtil {
 				Method method = clazz.getDeclaredMethod(methodName);
 				value = method.invoke(obj);
 			}
-		} catch (Exception e) {}
+		} catch (Exception e) {
+			logger.error("属性【" + fieldName + "】对应的方法【" + methodName +"】不存在!");
+		}
 		return value;
 	}
 
@@ -100,7 +107,7 @@ public class ReflectUtil {
 				value = method.invoke(obj);
 			}
 		} catch (Exception e) {
-			System.out.println("!!!!!!!!!!!!!--您期待执行的【" + methodName + "】方法未定义，请确认--!!!!!!!!!!!!!");
+			logger.error("!!!!!!!!!!!!!--您期待执行的【" + methodName + "】方法未定义，请确认--!!!!!!!!!!!!!");
 		}
 		return value;
 	}

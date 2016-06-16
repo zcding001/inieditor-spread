@@ -40,7 +40,15 @@ public class SecServiceImpl implements SecService {
 	 * 配置保存的核心入口
 	 */
 	public synchronized void saveSec(Object obj, IniEditor iniEditor) throws Exception {
-		
+		//判断传入的对象是不是集合
+		if(obj instanceof List<?>){	
+			List<?> objList = (List<?>)obj;
+			for(Object objTmp : objList){
+				this.saveObj(objTmp, iniEditor);
+			}
+		}else{
+			this.saveObj(obj, iniEditor);
+		}
 	}
 
 	public synchronized <E> List<E> loadSec(Class<?> clazz) throws Exception {
@@ -138,6 +146,43 @@ public class SecServiceImpl implements SecService {
 	}
 	
 	/**
+	 * 将对象保存到配置文件中
+	 * @param obj
+	 * @param conf
+	 */
+	private void saveObj(Object obj, IniEditor conf){
+		SectionField sectionField = this.getSectionField(obj);
+		Section section = this.getSection(sectionField);
+		String sectionName = section.getSectionName();
+		//删除旧的配置信息
+		if(conf.hasSection(sectionName)){
+			List<String> optionList = conf.optionNames(sectionName);
+			if(optionList != null && optionList.size() > 0){
+				for(String optionName : optionList){
+					conf.remove(sectionName, optionName);
+				}
+			}
+		}
+		//添加新的节点属性配置信息
+		conf.addSection(sectionName);
+		List<String> optList = section.getSectionOptOrder();
+		for(String name : optList){
+			Options opt = section.getSectionOptMap().get(name);
+			if(opt.isBlankLine()){
+				conf.addBlankLine(sectionName);
+			}
+			if(opt.getComment() != null && opt.getComment().length() > 0){
+				conf.addComment(sectionName, opt.getComment());
+			}
+			conf.set(sectionName, opt.getName(), opt.getValue());
+		}
+		if(section.isBlankLine()){
+			conf.addBlankLine(sectionName);
+		}
+	}
+	
+	
+	/**
 	 * 
 	 * 获得obj中含有@Option注解的所有属性
 	 * 
@@ -160,9 +205,7 @@ public class SecServiceImpl implements SecService {
 							sectionField.setSectionNameField(field);
 						}else{
 							sectionField.getSectionOptionsList().add(field);
-							//将属性的名称或是se中的name作为key field作为value，存入map中
-							//以便在调那个set方法时可以直接通过name获得对应的属性
-							if(option.key() != null && option.key() != "" && option.key().length() > 0){
+							if(option.key() != null && option.key().length() > 0){
 								sectionField.getSectionOptionsMap().put(option.key(), field);
 							}else{
 								sectionField.getSectionOptionsMap().put(field.getName(), field);
@@ -205,7 +248,6 @@ public class SecServiceImpl implements SecService {
 				ReflectUtil.callAssignedMethod(obj, option.beforeMethod());
 				//获得属性值
 				Object value = ReflectUtil.callIsOrGetMethod(obj, optField);
-				//如果value为空，且注解中nullToSave=false则忽略此属性
 				if((value == null || value.toString().length() <= 0)){
 					continue;
 				}
@@ -218,7 +260,7 @@ public class SecServiceImpl implements SecService {
 				//设置name=value中name值,如果注解中没有指定，那么name为属性名称，否则name为注解中name值
 				opt.setName(optField.getName());
 				String name = option.key();
-				if(name != null && name != "" && name.length() > 0){
+				if(name != null && name.length() > 0){
 					opt.setName(name);
 				}
 				//设置name=value中value值

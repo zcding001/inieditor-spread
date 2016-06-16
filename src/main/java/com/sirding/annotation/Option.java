@@ -76,4 +76,7 @@ public @interface Option {
 	 * @return
 	 */
 	AssertKey assertKey() default @AssertKey();
+	
+	AssertKey[] assertKeys() default {};
+	
 }
