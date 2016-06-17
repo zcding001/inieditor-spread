@@ -37,8 +37,12 @@ public class Section {
 	private boolean isBlankLine;
 	private String comment;
 	
-	private Map<String, Options> sectionOptMap = new HashMap<String, Options>();
-	private List<String> sectionOptOrder = new ArrayList<String>();
+	//所有要保存属性的结合
+	private Map<String, Options> map = new HashMap<String, Options>();
+	//要忽略的属性集合
+	private Map<String, Options> ignoreMap = new HashMap<String, Options>();
+	//用于存储节点属性的顺序
+	private List<String> list = new ArrayList<String>();
 	
 	private Set<String> ignoreSet = new HashSet<String>();
 
@@ -66,16 +70,22 @@ public class Section {
 	public void setIgnoreSet(Set<String> ignoreSet) {
 		this.ignoreSet = ignoreSet;
 	}
-	public Map<String, Options> getSectionOptMap() {
-		return sectionOptMap;
+	public Map<String, Options> getIgnoreMap() {
+		return ignoreMap;
 	}
-	public void setSectionOptMap(Map<String, Options> sectionOptMap) {
-		this.sectionOptMap = sectionOptMap;
+	public void setIgnoreMap(Map<String, Options> ignoreMap) {
+		this.ignoreMap = ignoreMap;
 	}
-	public List<String> getSectionOptOrder() {
-		return sectionOptOrder;
+	public Map<String, Options> getMap() {
+		return map;
 	}
-	public void setSectionOptOrder(List<String> sectionOptOrder) {
-		this.sectionOptOrder = sectionOptOrder;
+	public void setMap(Map<String, Options> map) {
+		this.map = map;
+	}
+	public List<String> getList() {
+		return list;
+	}
+	public void setList(List<String> list) {
+		this.list = list;
 	}
 }

@@ -1,6 +1,5 @@
 package com.sirding.test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -26,9 +25,9 @@ public class TestIniEditorSpread {
 	@Test
 	public void testGet(){
 		try {
-			List<TestSection> list = secService.loadSec(TestSection.class, filePath);
+			List<Persion> list = secService.loadSec(Persion.class, filePath);
 			if(list != null){
-				for(TestSection obj : list){
+				for(Persion obj : list){
 					logger.info(obj.getSecName() + "\t" + obj.getPwd() + "\t" + obj.getAge());
 				}
 			}
@@ -38,10 +37,13 @@ public class TestIniEditorSpread {
 		logger.info(filePath);
 	}
 	
+	/**
+	 * 测试简单的保存操作
+	 */
 	@Test
-	public void testAdd(){
+	public void testAdd1(){
 		try {
-			TestSection obj = new TestSection();
+			Persion obj = new Persion();
 			obj.setSecName("sirding");
 			obj.setPwd("a12345");
 			obj.setAge(26);
@@ -53,9 +55,17 @@ public class TestIniEditorSpread {
 	}
 	
 	@Test
+	public void testAdd2(){
+		
+	}
+	
+	/**
+	 * 测试枚举类型
+	 */
+	@Test
 	public void testFx(){
-		List<TestSection> list = secService.loadList(TestSection.class);
-		for(TestSection obj : list){
+		List<Persion> list = secService.loadList(Persion.class);
+		for(Persion obj : list){
 			logger.info(obj.getName());
 		}
 	}

@@ -50,33 +50,33 @@ public @interface Option {
 	/**
 	 * 屬性值保存标识符 默认值
 	 * 1：null empty不保存
-	 * 2：null不保存
-	 * 3：empty不保存
+	 * 2：null 不保存
+	 * 3：null 非empty保存
 	 * 4：保存
 	 * 5：不保存
 	 * @return
 	 */
-	String saveFlag() default "1";
+	int saveFlag() default 1;
 	
 	/**
-	 * 属性是null、false、
+	 * 不确定是否保存的元素
 	 * @return
 	 */
-	IgnoreKey[] ignoreKey() default { };
+	boolean notSure() default false;
 	
 	/**
-	 * 断言指定的成员变量的值是否在期望的值得数组中
+	 * 断言指定的成员变量的值是否在期望的值相等，相等时通过flag、priority判断是否保留params中相对应的属性
 	 * eg
 	 * @Option
-	 * private String name;
-	 * @Option(assertKey = @assertKey(name = "name", values = {"1"}))
+	 * @Option(assertKeys = {
+	 *		@AssertKey(ev = "a", priority = 1, params = {"aa"}),
+	 *		@AssertKey(ev = "b", flag = false, params = {"bb"})
+			})
 	 * private String key;
-	 * 如果name的值为“1”,那么将key的值写入到配置文件中如果name不为“1”，那么不将key的值写入到文件中
+	 * 如果key=a那么保存成员变量aa的值到文件中，如果key=b那么将不保存bb属性值到配置文件中
 	 * 如果注解中不包含assertKey那么直接将key值写入到文件中
 	 * @return
 	 */
-	AssertKey assertKey() default @AssertKey();
-	
 	AssertKey[] assertKeys() default {};
 	
 }

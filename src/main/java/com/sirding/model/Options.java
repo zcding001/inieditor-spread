@@ -19,9 +19,10 @@ package com.sirding.model;
 public class Options {
 
 	private String name;
-	private String value;
+	private Object value;
 	private boolean isBlankLine;
 	private String comment;
+	private int priority = 0;
 	
 	public String getName() {
 		return name;
@@ -29,10 +30,10 @@ public class Options {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getValue() {
+	public Object getValue() {
 		return value;
 	}
-	public void setValue(String value) {
+	public void setValue(Object value) {
 		this.value = value;
 	}
 	public boolean isBlankLine() {
@@ -46,5 +47,11 @@ public class Options {
 	}
 	public void setComment(String comment) {
 		this.comment = comment;
+	}
+	public int getPriority() {
+		return priority;
+	}
+	public void setPriority(int priority) {
+		this.priority = priority;
 	}
 }

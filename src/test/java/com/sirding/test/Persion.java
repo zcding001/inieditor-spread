@@ -2,7 +2,7 @@ package com.sirding.test;
 
 import com.sirding.annotation.Option;
 
-public class TestSection {
+public class Persion {
 
 	@Option(isSection = true)
 	private String secName;

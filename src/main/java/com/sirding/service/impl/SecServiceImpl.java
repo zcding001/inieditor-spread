@@ -8,7 +8,6 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 
 import com.sirding.annotation.AssertKey;
-import com.sirding.annotation.IgnoreKey;
 import com.sirding.annotation.Option;
 import com.sirding.model.Options;
 import com.sirding.model.Section;
@@ -165,16 +164,22 @@ public class SecServiceImpl implements SecService {
 		}
 		//添加新的节点属性配置信息
 		conf.addSection(sectionName);
-		List<String> optList = section.getSectionOptOrder();
+		List<String> optList = section.getList();
 		for(String name : optList){
-			Options opt = section.getSectionOptMap().get(name);
+			Options opt = section.getMap().get(name);
+			Options ignoreOpt = section.getIgnoreMap().get(name);
+			//如果此属性在需要忽略的map中那么不将此属性信息保存到配置文件中
+			if(ignoreOpt != null && ignoreOpt.getPriority() >= opt.getPriority()){
+				continue;
+			}
+			
 			if(opt.isBlankLine()){
 				conf.addBlankLine(sectionName);
 			}
 			if(opt.getComment() != null && opt.getComment().length() > 0){
 				conf.addComment(sectionName, opt.getComment());
 			}
-			conf.set(sectionName, opt.getName(), opt.getValue());
+			conf.set(sectionName, opt.getName(), opt.getValue() == null?"":opt.getValue().toString());
 		}
 		if(section.isBlankLine()){
 			conf.addBlankLine(sectionName);
@@ -246,104 +251,77 @@ public class SecServiceImpl implements SecService {
 				option = optField.getAnnotation(Option.class);
 				//调用注解中assignedMethod指定的方法
 				ReflectUtil.callAssignedMethod(obj, option.beforeMethod());
-				//获得属性值
-				Object value = ReflectUtil.callIsOrGetMethod(obj, optField);
-				if((value == null || value.toString().length() <= 0)){
-					continue;
-				}
-				//如果需要忽略属性的set集合中包含这个属性，那么忽略此属性
-				if(section.getIgnoreSet().contains(optField.getName())){
-					section.getSectionOptOrder().remove(optField.getName());
-					section.getSectionOptMap().remove(optField.getName());
-					continue;
-				}
 				//设置name=value中name值,如果注解中没有指定，那么name为属性名称，否则name为注解中name值
 				opt.setName(optField.getName());
-				String name = option.key();
-				if(name != null && name.length() > 0){
-					opt.setName(name);
+				String key = option.key();
+				if(key != null && key.length() > 0){
+					opt.setName(key);
 				}
+				//获得属性值
+				Object value = ReflectUtil.callIsOrGetMethod(obj, optField);
 				//设置name=value中value值
-				opt.setValue("");
-				if(value != null){
-					opt.setValue(value.toString());
-				}
-				//通过value与注解中flag比较判断 ，如果匹配，params中指定的属性值将不会被保存到配置文件中
-				IgnoreKey[] iproArr = option.ignoreKey();
-				if(iproArr != null){
-					for(IgnoreKey ipro : iproArr){
-						String flag = ipro.flag();
-						String[] params = ipro.params();
-						if(params != null){
-							//如果flag定义为NULL那么判断value是不是为null如果为null那么操作需要忽略的属性
-							//如果flag定义为非NULL值，那么判断value值时一定要要判断value是否为null，因为要执行value.toString()方法
-							if("NULL".equals(flag)){
-								if(value == null){
-									this.addParamsToSet(section, params);
-								}
-							}else{
-								if(value != null && flag.equals(value.toString())){
-									this.addParamsToSet(section, params);
-								}
-							}
-						}
-					}
-				}
-				//通过name对应的值与values数组的中的对比，如果name对应的成员变量的在期望的值中，那么将此field的值写入到配置文件中
-				AssertKey apro = option.assertKey();
-				boolean flag = false;
-				if(apro != null){
-					String fields = apro.name();
-					if(fields != null && fields.length() > 0){
-						String[] arr = apro.values();
-						if(arr != null){
-							//获得参考的属性的值
-							Object fieldsValue = ReflectUtil.callIsOrGetMethod(obj, sectionField.getSectionOptionsMap().get(fields));
-							if(fieldsValue != null){
-								for(String tmp : arr){
-									if(fieldsValue.toString().equals(tmp) && tmp.length() > 0){
-										flag = true;
-										break;
-									}
-								}
-							}
-						}
-					}else{
-						flag = true;
-					}
-				}else{
-					flag = true;
-				}
-				if(!flag){
+				opt.setValue(value);
+				int saveFlag = option.saveFlag();
+				if(this.isSaveFlag(saveFlag, value)){
 					continue;
 				}
-				//无论属性为何值都不执行保存的操作
-//				if(!option.isSave()){
-//					continue;
-//				}
+				AssertKey[] akArr = option.assertKeys();
+				if(akArr != null){
+					for(AssertKey ak : akArr){
+						String ev = ak.ev();
+						//判断属性值是否与期望值相等
+						if(ev != null && ev.length() > 0 && value != null && 
+								value.toString().length() > 0 && ev.equals(value.toString())){
+							if(!ak.flag()){
+								Options assertOpt = new Options();
+								assertOpt.setName(key);
+								assertOpt.setValue(value);
+								assertOpt.setPriority(ak.priority());
+								section.getIgnoreMap().put(key, assertOpt);
+							}
+						}
+					}
+				}
 				opt.setBlankLine(option.blankLine());
 				section.setComment(option.comment());
-				section.getSectionOptOrder().add(opt.getName());
-				section.getSectionOptMap().put(opt.getName(), opt);
+				section.getList().add(opt.getName());
+				section.getMap().put(opt.getName(), opt);
 			}
 		}
 		return section;
 	}
 	
 	/**
-	 * 将集合中参数存储到section属性的ignoreSet中
-	 * @param section
-	 * @param params
+	 * 判断属性值 null empty
+	 * @param saveFlag
+	 * @param value
+	 * @return
 	 */
-	private void addParamsToSet(Section section, String[] params){
-		if(params != null){
-			for(String param : params){
-				section.getIgnoreSet().add(param);
-			}
+	private boolean isSaveFlag(int saveFlag, Object value){
+		boolean flag = false;
+		switch(saveFlag){
+			case 2:
+				if(value == null){
+					flag = true;
+				}
+				break;
+			case 3:
+				if(value == null || value.toString().length() <= 0){
+					flag = false;
+				}
+				break;
+			case 4:
+				flag = false;
+				break;
+			case 5:
+				flag = true;
+				break;
+			default:
+				flag = true;
+				break;
 		}
+		return flag;
 	}
-	
-	
 	
 	/**
 	 * 
@@ -376,9 +354,9 @@ public class SecServiceImpl implements SecService {
 				ReflectUtil.callSetMethod(obj, sectionNameField, section.getSectionName());
 				
 				//设置section节点下对应属性的值
-				Map<String, Options> map = section.getSectionOptMap();
+				Map<String, Options> map = section.getMap();
 				for(String name : map.keySet()){
-					String value = map.get(name).getValue();
+					Object value = map.get(name).getValue();
 					Field sectionOptionsField = sectionField.getSectionOptionsMap().get(name);
 					logger.debug(sectionOptionsField + "-" + name);
 					ReflectUtil.callSetMethod(obj, sectionOptionsField, value);
@@ -429,8 +407,8 @@ public class SecServiceImpl implements SecService {
 				Options opt = new Options();
 				opt.setName(optName);
 				opt.setValue(iniEditor.get(sectionName, optName));
-				section.getSectionOptMap().put(optName, opt);
-				section.getSectionOptOrder().add(optName);
+				section.getMap().put(optName, opt);
+				section.getList().add(optName);
 			}
 		}
 		return section;
