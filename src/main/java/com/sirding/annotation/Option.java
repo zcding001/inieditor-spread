@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
  * 应用于Object属性注解之上，以解决Object与.conf或是.ini文件中属性之间对应的逻辑关系
  * 
  * @author zc.ding
- *
+ * @date 20160-06-17
  */
 
 @Target(ElementType.FIELD)
