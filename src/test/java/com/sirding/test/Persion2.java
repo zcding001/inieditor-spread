@@ -8,19 +8,22 @@ public class Persion2 {
 	@Option(isSection = true)
 	private String secName;
 	@Option(assertKeys = {
-			@AssertKey(ev = "a", flag = true, params = {"aa"}),
-			@AssertKey(ev = "b", flag = true, params = {"aa"})
+			@AssertKey(ev = {"a"}, flag = true, params = {"name_a"}),
+			@AssertKey(ev = {"b"}, flag = true, params = {"nameb"})
 			})
 	private String protool;
 	
-	@Option(key = "neme_a")
+	@Option(key = "name_a", notSure = true)
 	private String namea;
-	@Option()
+	@Option(notSure = true)
 	private String pwda;
-	@Option()
+	
+	@Option(notSure = true)
 	private String nameb;
-	@Option()
-	private String pwd;
+	@Option(notSure = true)
+	private String pwdb;
+	
+	
 	public String getSecName() {
 		return secName;
 	}
@@ -51,11 +54,11 @@ public class Persion2 {
 	public void setNameb(String nameb) {
 		this.nameb = nameb;
 	}
-	public String getPwd() {
-		return pwd;
+	public String getPwdb() {
+		return pwdb;
 	}
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
+	public void setPwdb(String pwdb) {
+		this.pwdb = pwdb;
 	}
 	
 }

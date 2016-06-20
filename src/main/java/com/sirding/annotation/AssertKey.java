@@ -15,10 +15,10 @@ import java.lang.annotation.Target;
 public @interface AssertKey {
 
 	/**
-	 * 期待的值 ev = expectedValue
+	 * 期待的值 数组ev = [expectedValue]
 	 * @return
 	 */
-	String ev() default "";
+	String[] ev() default {};
 	
 	/**
 	 * 优先级值越大，优先级越高，优先级相等时，以不保存(删除)优先

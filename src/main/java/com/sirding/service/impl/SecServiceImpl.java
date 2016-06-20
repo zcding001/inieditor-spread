@@ -30,7 +30,7 @@ public class SecServiceImpl implements SecService {
 
 	public void saveSec(Object obj, String filePath) throws Exception {
 		logger.debug("配置信息将保存到【" + filePath + "】文件中");
-		IniEditor iniEditor = new IniEditor();
+		IniEditor iniEditor = new IniEditor(true);
 		iniEditor.load(filePath);
 		this.saveSec(obj, iniEditor);
 		iniEditor.save(filePath);
@@ -72,7 +72,7 @@ public class SecServiceImpl implements SecService {
 
 	public <E> List<E> loadSec(Class<?> clazz, String filePath) throws Exception {
 		logger.debug("配置信息将保存到【" + filePath + "】文件中");
-		IniEditor iniEditor = new IniEditor();
+		IniEditor iniEditor = new IniEditor(true);
 		iniEditor.load(filePath);
 		List<E> list = this.loadSec(clazz, iniEditor);
 		return list;
@@ -80,7 +80,7 @@ public class SecServiceImpl implements SecService {
 	
 	public <E> List<E> loadSec(Class<?> clazz, String filePath, String flag, String... params) throws Exception {
 		logger.debug("配置信息将保存到【" + filePath + "】文件中");
-		IniEditor iniEditor = new IniEditor();
+		IniEditor iniEditor = new IniEditor(true);
 		iniEditor.load(filePath);
 		List<E> list = this.loadSec(clazz, iniEditor, flag, params);
 		return list;
@@ -117,7 +117,7 @@ public class SecServiceImpl implements SecService {
 	public <E> List<E> loadSec(Object obj, String filePath) throws Exception {
 		logger.debug("配置信息将保存到【" + filePath + "】文件中");
 		if(obj != null){
-			IniEditor iniEditor = new IniEditor();
+			IniEditor iniEditor = new IniEditor(true);
 			iniEditor.load(filePath);
 			List<E> list = this.loadSec(obj, iniEditor);
 			return list;
@@ -128,7 +128,7 @@ public class SecServiceImpl implements SecService {
 	public <E> List<E> loadSec(Object obj, String filePath, String flag, String... params) throws Exception {
 		logger.debug("配置信息将保存到【" + filePath + "】文件中");
 		if(obj != null){
-			IniEditor iniEditor = new IniEditor();
+			IniEditor iniEditor = new IniEditor(true);
 			iniEditor.load(filePath);
 			List<E> list = this.loadSec(obj, iniEditor, flag, params);
 			return list;
@@ -216,6 +216,7 @@ public class SecServiceImpl implements SecService {
 							sectionField.setSectionNameField(field);
 						}else{
 							sectionField.getSectionOptionsList().add(field);
+//							sectionField.getSectionOptionsMap().put(field.getName(), field);
 							if(option.key() != null && option.key().length() > 0){
 								sectionField.getSectionOptionsMap().put(option.key(), field);
 							}else{
@@ -274,24 +275,48 @@ public class SecServiceImpl implements SecService {
 				AssertKey[] akArr = option.assertKeys();
 				if(akArr != null){
 					for(AssertKey ak : akArr){
-						String ev = ak.ev();
+						String[] ev = ak.ev();
 						//判断属性值是否与期望值相等
-						if(ev != null && ev.length() > 0 && value != null && 
-								value.toString().length() > 0 && ev.equals(value.toString())){
-							if(!ak.flag()){
-								Options assertOpt = new Options();
-								assertOpt.setName(key);
-								assertOpt.setValue(value);
-								assertOpt.setPriority(ak.priority());
-								section.getIgnoreMap().put(key, assertOpt);
+						if(ev != null && ev.length > 0 && value != null && value.toString().length() > 0){
+							for(String tmp : ev){
+								//期望值与属性相等
+								if(tmp != null && tmp.equals(value.toString())){
+									String[] params = ak.params();
+									if(params != null && params.length > 0){
+										for(String param : params){
+											Options assertOpt = new Options();
+											assertOpt.setName(param);
+											assertOpt.setPriority(ak.priority());
+											//判断是否包含
+											if(!ak.flag()){
+												section.getIgnoreMap().put(assertOpt.getName(), assertOpt);
+											}else{
+												if(!section.getMap().containsKey(assertOpt.getName())){
+													section.getList().add(assertOpt.getName());
+												}
+												section.getMap().put(assertOpt.getName(), assertOpt);
+											}
+										}
+									}
+								}
 							}
 						}
 					}
 				}
 				opt.setBlankLine(option.blankLine());
 				section.setComment(option.comment());
-				section.getList().add(opt.getName());
-				section.getMap().put(opt.getName(), opt);
+				//不确定属性
+				if(option.notSure()){
+					if(section.getMap().containsKey(opt.getName())){
+						opt.setPriority(section.getMap().get(opt.getName()).getPriority());
+						section.getMap().put(opt.getName(), opt);
+					}
+				}else{
+					if(!section.getMap().containsKey(key)){
+						section.getList().add(opt.getName());
+					}
+					section.getMap().put(opt.getName(), opt);
+				}
 			}
 		}
 		return section;
@@ -306,21 +331,14 @@ public class SecServiceImpl implements SecService {
 	private boolean isSaveFlag(int saveFlag, Object value){
 		boolean flag = false;
 		switch(saveFlag){
-			case 2:
-				if(value == null){
-					flag = true;
-				}
-				break;
-			case 3:
-				if(value == null || value.toString().length() <= 0){
-					flag = false;
-				}
-				break;
-			case 4:
+			case 1:
 				flag = false;
 				break;
-			case 5:
-				flag = true;
+			case 2:
+				flag = false;
+				if(value == null || value.toString().length() <= 0){
+					flag = true;
+				}
 				break;
 			default:
 				flag = true;

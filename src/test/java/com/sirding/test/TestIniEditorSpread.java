@@ -47,6 +47,7 @@ public class TestIniEditorSpread {
 			obj.setSecName("sirding");
 			obj.setPwd("a12345");
 			obj.setAge(26);
+			obj.setLove("girl");
 			secService.saveSec(obj, filePath);
 //			secService.saveSec(obj);
 		} catch (Exception e) {
@@ -56,10 +57,18 @@ public class TestIniEditorSpread {
 	
 	@Test
 	public void testAdd2(){
-		Persion2 obj = new Persion2();
-		obj.setSecName("testA");
-		obj.setProtool("a");
-		
+		try {
+			Persion2 obj = new Persion2();
+			obj.setSecName("testAAA");
+			obj.setProtool("a");
+			obj.setNamea("a");
+			obj.setPwda("pwda");;
+			obj.setNameb("b");
+			obj.setPwdb("b");
+			secService.saveSec(obj, filePath);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/**

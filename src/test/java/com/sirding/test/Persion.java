@@ -12,6 +12,8 @@ public class Persion {
 	private String pwd;
 	@Option
 	private int age;
+	@Option(saveFlag = 2)
+	private String love;
 	public String getSecName() {
 		return secName;
 	}
@@ -35,5 +37,11 @@ public class Persion {
 	}
 	public void setAge(int age) {
 		this.age = age;
+	}
+	public String getLove() {
+		return love;
+	}
+	public void setLove(String love) {
+		this.love = love;
 	}
 }

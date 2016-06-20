@@ -49,17 +49,17 @@ public @interface Option {
 	
 	/**
 	 * 屬性值保存标识符 默认值
-	 * 1：null empty不保存
-	 * 2：null 不保存
-	 * 3：null 非empty保存
-	 * 4：保存
-	 * 5：不保存
+	 * 1：保存
+	 * 2：null empty不保存
+	 * 3：不保存
 	 * @return
 	 */
 	int saveFlag() default 1;
 	
 	/**
 	 * 不确定是否保存的元素
+	 * false : 在要保存的集合中，可以通过asserKeys注解的配置进行过滤
+	 * true ： 不再保存的集合中，通过asserKeys注解配置动态添加保存属性的集合中
 	 * @return
 	 */
 	boolean notSure() default false;
