@@ -57,3 +57,6 @@
 [INFO][2016-06-16 10:35:12,554][com.sirding.test.TestIniEditorSpread]two	test@123	0
 [INFO][2016-06-16 10:35:12,554][com.sirding.test.TestIniEditorSpread]three	111111	0
 [INFO][2016-06-16 10:35:12,554][com.sirding.test.TestIniEditorSpread]C:/yrtz/project4ecplise/inieditor-spread/target/test-classes/test.ini
+[ERROR][2016-06-18 15:06:13,272][com.sirding.service.impl.SecServiceImpl]ERROR-Exception=======没有CONF_FILE_PATH属性或配置文件不存在======
+[DEBUG][2016-06-18 15:13:09,685][com.sirding.service.impl.SecServiceImpl]配置信息将保存到【E:/git/github/inieditor-spread/target/test-classes/test.ini】文件中
+[DEBUG][2016-06-18 15:13:09,904][com.sirding.service.impl.SecServiceImpl]配置信息已成功保存到文件中......

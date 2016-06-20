@@ -29,6 +29,7 @@ public class SecServiceImpl implements SecService {
 	}
 
 	public void saveSec(Object obj, String filePath) throws Exception {
+		logger.debug("配置信息将保存到【" + filePath + "】文件中");
 		IniEditor iniEditor = new IniEditor();
 		iniEditor.load(filePath);
 		this.saveSec(obj, iniEditor);
@@ -48,6 +49,7 @@ public class SecServiceImpl implements SecService {
 		}else{
 			this.saveObj(obj, iniEditor);
 		}
+		logger.debug("配置信息已成功保存到文件中......");
 	}
 
 	public synchronized <E> List<E> loadSec(Class<?> clazz) throws Exception {
@@ -69,6 +71,7 @@ public class SecServiceImpl implements SecService {
 	}
 
 	public <E> List<E> loadSec(Class<?> clazz, String filePath) throws Exception {
+		logger.debug("配置信息将保存到【" + filePath + "】文件中");
 		IniEditor iniEditor = new IniEditor();
 		iniEditor.load(filePath);
 		List<E> list = this.loadSec(clazz, iniEditor);
@@ -76,6 +79,7 @@ public class SecServiceImpl implements SecService {
 	}
 	
 	public <E> List<E> loadSec(Class<?> clazz, String filePath, String flag, String... params) throws Exception {
+		logger.debug("配置信息将保存到【" + filePath + "】文件中");
 		IniEditor iniEditor = new IniEditor();
 		iniEditor.load(filePath);
 		List<E> list = this.loadSec(clazz, iniEditor, flag, params);
@@ -111,6 +115,7 @@ public class SecServiceImpl implements SecService {
 	}
 
 	public <E> List<E> loadSec(Object obj, String filePath) throws Exception {
+		logger.debug("配置信息将保存到【" + filePath + "】文件中");
 		if(obj != null){
 			IniEditor iniEditor = new IniEditor();
 			iniEditor.load(filePath);
@@ -121,6 +126,7 @@ public class SecServiceImpl implements SecService {
 	}
 
 	public <E> List<E> loadSec(Object obj, String filePath, String flag, String... params) throws Exception {
+		logger.debug("配置信息将保存到【" + filePath + "】文件中");
 		if(obj != null){
 			IniEditor iniEditor = new IniEditor();
 			iniEditor.load(filePath);

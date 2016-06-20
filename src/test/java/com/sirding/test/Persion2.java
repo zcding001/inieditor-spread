@@ -21,7 +21,41 @@ public class Persion2 {
 	private String nameb;
 	@Option()
 	private String pwd;
-	
-	
+	public String getSecName() {
+		return secName;
+	}
+	public void setSecName(String secName) {
+		this.secName = secName;
+	}
+	public String getProtool() {
+		return protool;
+	}
+	public void setProtool(String protool) {
+		this.protool = protool;
+	}
+	public String getNamea() {
+		return namea;
+	}
+	public void setNamea(String namea) {
+		this.namea = namea;
+	}
+	public String getPwda() {
+		return pwda;
+	}
+	public void setPwda(String pwda) {
+		this.pwda = pwda;
+	}
+	public String getNameb() {
+		return nameb;
+	}
+	public void setNameb(String nameb) {
+		this.nameb = nameb;
+	}
+	public String getPwd() {
+		return pwd;
+	}
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
 	
 }
