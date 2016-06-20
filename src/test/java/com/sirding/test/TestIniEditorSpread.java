@@ -6,17 +6,16 @@ import org.apache.log4j.Logger;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.sirding.service.SecService;
-import com.sirding.service.impl.SecServiceImpl;
+import com.sirding.singleton.IniTool;
 
 public class TestIniEditorSpread {
 	static Logger logger = Logger.getLogger(TestIniEditorSpread.class);
-	private static SecService secService;
 	private static String filePath;
+	private static IniTool iniTool = null;
 	
 	@BeforeClass
 	public static void init(){
-		secService = new SecServiceImpl();
+		iniTool = IniTool.newInstance();
 		filePath = TestIniEditorSpread.class.getResource("/").toString();
 		filePath = filePath + "test.ini";
 		filePath = filePath.replaceFirst("file:/", "");
@@ -25,7 +24,7 @@ public class TestIniEditorSpread {
 	@Test
 	public void testGet(){
 		try {
-			List<Persion> list = secService.loadSec(Persion.class, filePath);
+			List<Persion> list = iniTool.loadSec(Persion.class, filePath);
 			if(list != null){
 				for(Persion obj : list){
 					logger.info(obj.getSecName() + "\t" + obj.getPwd() + "\t" + obj.getAge());
@@ -48,8 +47,7 @@ public class TestIniEditorSpread {
 			obj.setPwd("a12345");
 			obj.setAge(26);
 			obj.setLove("girl");
-			secService.saveSec(obj, filePath);
-//			secService.saveSec(obj);
+			iniTool.saveSec(obj, filePath);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -65,7 +63,7 @@ public class TestIniEditorSpread {
 			obj.setPwda("pwda");;
 			obj.setNameb("b");
 			obj.setPwdb("b");
-			secService.saveSec(obj, filePath);
+			iniTool.saveSec(obj, filePath);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -76,7 +74,7 @@ public class TestIniEditorSpread {
 	 */
 	@Test
 	public void testFx(){
-		List<Persion> list = secService.loadList(Persion.class);
+		List<Persion> list = iniTool.loadList(Persion.class);
 		for(Persion obj : list){
 			logger.info(obj.getName());
 		}
