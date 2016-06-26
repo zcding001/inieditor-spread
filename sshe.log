@@ -107,3 +107,234 @@
 [INFO][2016-06-20 11:29:17,088][com.sirding.service.impl.SecServiceImpl]===protool
 [INFO][2016-06-20 11:29:17,089][com.sirding.service.impl.SecServiceImpl]===name_a
 [DEBUG][2016-06-20 11:29:17,090][com.sirding.service.impl.SecServiceImpl]配置信息已成功保存到文件中......
+[DEBUG][2016-06-20 23:37:09,424][com.sirding.service.impl.SecServiceImpl]配置信息将保存到【E:/git/github/inieditor-spread/target/test-classes/test.ini】文件中
+[DEBUG][2016-06-20 23:37:09,520][com.sirding.service.impl.SecServiceImpl]配置信息已成功保存到文件中......
+[INFO][2016-06-26 10:18:30,195][com.sirding.test.TestIniEditorSpread]
+[INFO][2016-06-26 10:18:30,207][com.sirding.test.TestIniEditorSpread]
+[INFO][2016-06-26 10:18:30,207][com.sirding.test.TestIniEditorSpread]
+[INFO][2016-06-26 10:18:30,207][com.sirding.test.TestIniEditorSpread]
+[INFO][2016-06-26 10:18:30,208][com.sirding.test.TestIniEditorSpread]
+[INFO][2016-06-26 10:21:32,317][com.sirding.test.TestIniEditorSpread]
+[INFO][2016-06-26 10:21:32,324][com.sirding.test.TestIniEditorSpread]
+[INFO][2016-06-26 10:21:32,325][com.sirding.test.TestIniEditorSpread]
+[INFO][2016-06-26 10:21:32,325][com.sirding.test.TestIniEditorSpread]
+[INFO][2016-06-26 10:21:32,325][com.sirding.test.TestIniEditorSpread]
+[INFO][2016-06-26 10:22:42,677][com.sirding.test.TestIniEditorSpread]null==null
+[INFO][2016-06-26 10:22:42,686][com.sirding.test.TestIniEditorSpread]null==null
+[INFO][2016-06-26 10:22:42,686][com.sirding.test.TestIniEditorSpread]null==null
+[INFO][2016-06-26 10:22:42,687][com.sirding.test.TestIniEditorSpread]null==null
+[INFO][2016-06-26 10:22:42,687][com.sirding.test.TestIniEditorSpread]null==null
+[INFO][2016-06-26 10:23:36,255][com.sirding.test.TestIniEditorSpread]null==null
+[INFO][2016-06-26 10:23:36,263][com.sirding.test.TestIniEditorSpread]null==null
+[INFO][2016-06-26 10:23:36,263][com.sirding.test.TestIniEditorSpread]null==null
+[INFO][2016-06-26 10:23:36,264][com.sirding.test.TestIniEditorSpread]null==null
+[INFO][2016-06-26 10:23:36,264][com.sirding.test.TestIniEditorSpread]null==null
+[DEBUG][2016-06-26 10:26:43,295][com.sirding.service.impl.SecServiceImpl]配置信息将保存到【E:/git/github/inieditor-spread/target/test-classes/test.ini】文件中
+[DEBUG][2016-06-26 10:26:43,348][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Persion.pwd-pwd
+[DEBUG][2016-06-26 10:26:43,348][com.sirding.service.impl.SecServiceImpl]private int com.sirding.test.Persion.age-age
+[DEBUG][2016-06-26 10:26:43,349][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Persion.name-name
+[DEBUG][2016-06-26 10:26:43,352][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Persion.pwd-pwd
+[DEBUG][2016-06-26 10:26:43,355][com.sirding.service.impl.SecServiceImpl]private int com.sirding.test.Persion.age-age
+[DEBUG][2016-06-26 10:26:43,356][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Persion.name-name
+[DEBUG][2016-06-26 10:26:43,357][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Persion.pwd-pwd
+[DEBUG][2016-06-26 10:26:43,358][com.sirding.service.impl.SecServiceImpl]private int com.sirding.test.Persion.age-age
+[DEBUG][2016-06-26 10:26:43,358][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Persion.name-name
+[DEBUG][2016-06-26 10:26:43,361][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Persion.love-love
+[DEBUG][2016-06-26 10:26:43,361][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Persion.pwd-pwd
+[DEBUG][2016-06-26 10:26:43,362][com.sirding.service.impl.SecServiceImpl]private int com.sirding.test.Persion.age-age
+[DEBUG][2016-06-26 10:26:43,362][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Persion.name-name
+[DEBUG][2016-06-26 10:26:43,363][com.sirding.service.impl.SecServiceImpl]null-protool
+[DEBUG][2016-06-26 10:26:43,396][com.sirding.service.impl.SecServiceImpl]null-nameb
+[INFO][2016-06-26 10:26:43,402][com.sirding.test.TestIniEditorSpread]one	123456	0
+[INFO][2016-06-26 10:26:43,402][com.sirding.test.TestIniEditorSpread]two	test@123	0
+[INFO][2016-06-26 10:26:43,403][com.sirding.test.TestIniEditorSpread]three	111111	0
+[INFO][2016-06-26 10:26:43,403][com.sirding.test.TestIniEditorSpread]sirding	a12345	0
+[INFO][2016-06-26 10:26:43,403][com.sirding.test.TestIniEditorSpread]testAAA	null	0
+[INFO][2016-06-26 10:26:43,403][com.sirding.test.TestIniEditorSpread]E:/git/github/inieditor-spread/target/test-classes/test.ini
+[DEBUG][2016-06-26 10:53:23,964][com.sirding.service.impl.SecServiceImpl]从【E:/git/github/inieditor-spread/target/test-classes/test.ini】文件中加载配置信息
+[DEBUG][2016-06-26 10:53:24,001][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Persion.pwd-pwd
+[DEBUG][2016-06-26 10:53:24,002][com.sirding.service.impl.SecServiceImpl]private int com.sirding.test.Persion.age-age
+[DEBUG][2016-06-26 10:53:24,003][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Persion.name-name
+[DEBUG][2016-06-26 10:53:24,006][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Persion.pwd-pwd
+[DEBUG][2016-06-26 10:53:24,006][com.sirding.service.impl.SecServiceImpl]private int com.sirding.test.Persion.age-age
+[DEBUG][2016-06-26 10:53:24,006][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Persion.name-name
+[DEBUG][2016-06-26 10:53:24,008][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Persion.pwd-pwd
+[DEBUG][2016-06-26 10:53:24,009][com.sirding.service.impl.SecServiceImpl]private int com.sirding.test.Persion.age-age
+[DEBUG][2016-06-26 10:53:24,009][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Persion.name-name
+[DEBUG][2016-06-26 10:53:24,013][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Persion.love-love
+[DEBUG][2016-06-26 10:53:24,013][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Persion.pwd-pwd
+[DEBUG][2016-06-26 10:53:24,014][com.sirding.service.impl.SecServiceImpl]private int com.sirding.test.Persion.age-age
+[DEBUG][2016-06-26 10:53:24,014][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Persion.name-name
+[DEBUG][2016-06-26 10:53:24,016][com.sirding.service.impl.SecServiceImpl]null-protool
+[DEBUG][2016-06-26 10:53:24,020][com.sirding.service.impl.SecServiceImpl]null-nameb
+[INFO][2016-06-26 10:53:24,025][com.sirding.test.TestIniEditorSpread]one	123456	0
+[INFO][2016-06-26 10:53:24,025][com.sirding.test.TestIniEditorSpread]two	test@123	0
+[INFO][2016-06-26 10:53:24,025][com.sirding.test.TestIniEditorSpread]three	111111	0
+[INFO][2016-06-26 10:53:24,026][com.sirding.test.TestIniEditorSpread]sirding	a12345	0
+[INFO][2016-06-26 10:53:24,026][com.sirding.test.TestIniEditorSpread]testAAA	null	0
+[INFO][2016-06-26 10:53:24,026][com.sirding.test.TestIniEditorSpread]E:/git/github/inieditor-spread/target/test-classes/test.ini
+[DEBUG][2016-06-26 10:53:30,704][com.sirding.service.impl.SecServiceImpl]从【E:/git/github/inieditor-spread/target/test-classes/test.ini】文件中加载配置信息
+[DEBUG][2016-06-26 10:58:11,800][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Persion.pwd-pwd
+[DEBUG][2016-06-26 10:58:11,801][com.sirding.service.impl.SecServiceImpl]private int com.sirding.test.Persion.age-age
+[DEBUG][2016-06-26 10:58:11,801][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Persion.name-name
+[DEBUG][2016-06-26 10:58:11,808][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Persion.pwd-pwd
+[DEBUG][2016-06-26 10:58:11,808][com.sirding.service.impl.SecServiceImpl]private int com.sirding.test.Persion.age-age
+[DEBUG][2016-06-26 10:58:11,822][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Persion.name-name
+[DEBUG][2016-06-26 10:58:11,824][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Persion.pwd-pwd
+[DEBUG][2016-06-26 10:58:11,824][com.sirding.service.impl.SecServiceImpl]private int com.sirding.test.Persion.age-age
+[DEBUG][2016-06-26 10:58:11,824][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Persion.name-name
+[DEBUG][2016-06-26 10:58:11,827][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Persion.love-love
+[DEBUG][2016-06-26 10:58:11,827][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Persion.pwd-pwd
+[DEBUG][2016-06-26 10:58:11,828][com.sirding.service.impl.SecServiceImpl]private int com.sirding.test.Persion.age-age
+[DEBUG][2016-06-26 10:58:11,828][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Persion.name-name
+[DEBUG][2016-06-26 10:58:11,829][com.sirding.service.impl.SecServiceImpl]null-protool
+[DEBUG][2016-06-26 10:58:11,836][com.sirding.service.impl.SecServiceImpl]null-nameb
+[INFO][2016-06-26 10:58:11,840][com.sirding.test.TestIniEditorSpread]one	123456	0
+[INFO][2016-06-26 10:58:11,840][com.sirding.test.TestIniEditorSpread]two	test@123	0
+[INFO][2016-06-26 10:58:11,840][com.sirding.test.TestIniEditorSpread]three	111111	0
+[INFO][2016-06-26 10:58:11,841][com.sirding.test.TestIniEditorSpread]sirding	a12345	0
+[INFO][2016-06-26 10:58:11,841][com.sirding.test.TestIniEditorSpread]testAAA	null	0
+[INFO][2016-06-26 10:58:11,841][com.sirding.test.TestIniEditorSpread]E:/git/github/inieditor-spread/target/test-classes/test.ini
+[DEBUG][2016-06-26 11:08:20,867][com.sirding.service.impl.SecServiceImpl]配置信息将保存到【E:/git/github/inieditor-spread/target/test-classes/test.inisimplePath.ini】文件中
+[DEBUG][2016-06-26 11:08:47,011][com.sirding.service.impl.SecServiceImpl]从【E:/git/github/inieditor-spread/target/test-classes/】文件中加载配置信息
+[INFO][2016-06-26 11:08:47,034][com.sirding.test.TestIniEditorSpread]E:/git/github/inieditor-spread/target/test-classes/
+[DEBUG][2016-06-26 11:08:47,036][com.sirding.service.impl.SecServiceImpl]配置信息将保存到【E:/git/github/inieditor-spread/target/test-classes/simplePath.ini】文件中
+[DEBUG][2016-06-26 11:08:47,039][com.sirding.service.impl.SecServiceImpl]配置信息将保存到【E:/git/github/inieditor-spread/target/test-classes/】文件中
+[DEBUG][2016-06-26 11:08:47,043][com.sirding.service.impl.SecServiceImpl]配置信息将保存到【E:/git/github/inieditor-spread/target/test-classes/】文件中
+[INFO][2016-06-26 11:08:47,047][com.sirding.test.TestIniEditorSpread]null==null
+[INFO][2016-06-26 11:08:47,048][com.sirding.test.TestIniEditorSpread]null==null
+[INFO][2016-06-26 11:08:47,048][com.sirding.test.TestIniEditorSpread]null==null
+[INFO][2016-06-26 11:08:47,049][com.sirding.test.TestIniEditorSpread]null==null
+[INFO][2016-06-26 11:08:47,049][com.sirding.test.TestIniEditorSpread]null==null
+[DEBUG][2016-06-26 11:08:55,761][com.sirding.service.impl.SecServiceImpl]配置信息将保存到【E:/git/github/inieditor-spread/target/test-classes/simplePath.ini】文件中
+[DEBUG][2016-06-26 11:09:08,488][com.sirding.service.impl.SecServiceImpl]配置信息将保存到【E:/git/github/inieditor-spread/target/test-classes/simple.ini】文件中
+[DEBUG][2016-06-26 11:09:08,521][com.sirding.service.impl.SecServiceImpl]配置信息已成功保存到文件中......
+[DEBUG][2016-06-26 11:10:50,408][com.sirding.service.impl.SecServiceImpl]配置信息将保存到【E:/git/github/inieditor-spread/target/test-classes/simple.ini】文件中
+[DEBUG][2016-06-26 11:10:50,440][com.sirding.service.impl.SecServiceImpl]配置信息已成功保存到文件中......
+[DEBUG][2016-06-26 11:13:34,492][com.sirding.service.impl.SecServiceImpl]从【E:/git/github/inieditor-spread/target/test-classes/simple.ini】文件中加载配置信息
+[DEBUG][2016-06-26 11:13:34,528][com.sirding.service.impl.SecServiceImpl]private int com.sirding.test.Simple.id-id
+[DEBUG][2016-06-26 11:13:34,529][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Simple.name-name
+[DEBUG][2016-06-26 11:13:34,529][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Simple.msg-msg
+[DEBUG][2016-06-26 11:13:34,531][com.sirding.service.impl.SecServiceImpl]private int com.sirding.test.Simple.id-id
+[DEBUG][2016-06-26 11:13:34,532][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Simple.name-name
+[DEBUG][2016-06-26 11:13:34,533][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Simple.msg-msg
+[DEBUG][2016-06-26 11:13:34,534][com.sirding.test.TestIniEditorSpread]节点：one	name:one	 msg:add one
+[DEBUG][2016-06-26 11:13:34,534][com.sirding.test.TestIniEditorSpread]节点：two	name:two	 msg:add 第二条配置信息
+[DEBUG][2016-06-26 11:18:09,179][com.sirding.service.impl.SecServiceImpl]配置信息将保存到【E:/git/github/inieditor-spread/target/test-classes/simple.ini】文件中
+[DEBUG][2016-06-26 11:18:09,220][com.sirding.service.impl.SecServiceImpl]配置信息已成功保存到文件中......
+[DEBUG][2016-06-26 11:19:25,378][com.sirding.service.impl.SecServiceImpl]从【E:/git/github/inieditor-spread/target/test-classes/simple.ini】文件中加载配置信息
+[DEBUG][2016-06-26 11:19:25,406][com.sirding.service.impl.SecServiceImpl]private int com.sirding.test.Simple.id-id
+[DEBUG][2016-06-26 11:19:25,407][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Simple.name-name
+[DEBUG][2016-06-26 11:19:25,408][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Simple.msg-msg
+[DEBUG][2016-06-26 11:19:25,414][com.sirding.service.impl.SecServiceImpl]private int com.sirding.test.Simple.id-id
+[DEBUG][2016-06-26 11:19:25,415][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Simple.name-name
+[DEBUG][2016-06-26 11:19:25,415][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Simple.msg-msg
+[DEBUG][2016-06-26 11:19:25,417][com.sirding.service.impl.SecServiceImpl]private int com.sirding.test.Simple.id-id
+[DEBUG][2016-06-26 11:19:25,417][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Simple.name-name
+[DEBUG][2016-06-26 11:19:25,418][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Simple.msg-msg
+[DEBUG][2016-06-26 11:19:25,419][com.sirding.test.TestIniEditorSpread]节点：one	name:one	 msg:add one
+[DEBUG][2016-06-26 11:19:25,420][com.sirding.test.TestIniEditorSpread]节点：two	name:two	 msg:add 第二条配置信息
+[DEBUG][2016-06-26 11:19:25,420][com.sirding.test.TestIniEditorSpread]节点：three	name:three	 msg:hello world，你好，世界
+[DEBUG][2016-06-26 11:49:36,635][com.sirding.service.impl.SecServiceImpl]配置信息将保存到【E:/git/github/inieditor-spread/target/test-classes/complex.ini】文件中
+[ERROR][2016-06-26 11:49:36,710][com.sirding.util.ReflectUtil]属性【msg】对应的方法【getMsg】不存在!
+[DEBUG][2016-06-26 11:49:36,716][com.sirding.service.impl.SecServiceImpl]配置信息已成功保存到文件中......
+[DEBUG][2016-06-26 11:52:20,918][com.sirding.service.impl.SecServiceImpl]配置信息将保存到【E:/git/github/inieditor-spread/target/test-classes/complex.ini】文件中
+[DEBUG][2016-06-26 11:52:20,961][com.sirding.service.impl.SecServiceImpl]配置信息已成功保存到文件中......
+[DEBUG][2016-06-26 11:53:50,489][com.sirding.service.impl.SecServiceImpl]配置信息将保存到【E:/git/github/inieditor-spread/target/test-classes/complex.ini】文件中
+[DEBUG][2016-06-26 11:53:50,528][com.sirding.service.impl.SecServiceImpl]配置信息已成功保存到文件中......
+[DEBUG][2016-06-26 11:55:58,407][com.sirding.service.impl.SecServiceImpl]配置信息将保存到【E:/git/github/inieditor-spread/target/test-classes/complex.ini】文件中
+[DEBUG][2016-06-26 11:55:58,454][com.sirding.service.impl.SecServiceImpl]配置信息已成功保存到文件中......
+[DEBUG][2016-06-26 12:00:06,604][com.sirding.service.impl.SecServiceImpl]从【E:/git/github/inieditor-spread/target/test-classes/complex.ini】文件中加载配置信息
+[DEBUG][2016-06-26 12:00:06,642][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.tcpPort-tcp_port
+[DEBUG][2016-06-26 12:00:06,642][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.flag-flag
+[DEBUG][2016-06-26 12:00:06,643][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.name-name
+[DEBUG][2016-06-26 12:00:06,643][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.tcpIp-tcp_ip
+[DEBUG][2016-06-26 12:00:06,652][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.udpPort-udp_port
+[DEBUG][2016-06-26 12:00:06,653][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.flag-flag
+[DEBUG][2016-06-26 12:00:06,653][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.name-name
+[DEBUG][2016-06-26 12:00:06,653][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.udpIp-udp_ip
+[DEBUG][2016-06-26 12:00:06,654][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.msg-msg
+[DEBUG][2016-06-26 12:00:06,655][com.sirding.test.TestIniEditorSpread]secname:one	name=one_after	flag=tcp	
+tcp_ip:192.168.8.1
+tcp_port:11
+udp_ip:null
+udp_portnull
+[DEBUG][2016-06-26 12:00:06,655][com.sirding.test.TestIniEditorSpread]secname:two	name=two_after	flag=udp	
+tcp_ip:null
+tcp_port:null
+udp_ip:192.168.8.2
+udp_port22
+[DEBUG][2016-06-26 12:00:37,047][com.sirding.service.impl.SecServiceImpl]从【E:/git/github/inieditor-spread/target/test-classes/complex.ini】文件中加载配置信息
+[DEBUG][2016-06-26 12:00:37,084][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.tcpPort-tcp_port
+[DEBUG][2016-06-26 12:00:37,085][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.flag-flag
+[DEBUG][2016-06-26 12:00:37,086][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.name-name
+[DEBUG][2016-06-26 12:00:37,086][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.tcpIp-tcp_ip
+[DEBUG][2016-06-26 12:00:37,095][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.udpPort-udp_port
+[DEBUG][2016-06-26 12:00:37,096][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.flag-flag
+[DEBUG][2016-06-26 12:00:37,097][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.name-name
+[DEBUG][2016-06-26 12:00:37,097][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.udpIp-udp_ip
+[DEBUG][2016-06-26 12:00:37,097][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.msg-msg
+[DEBUG][2016-06-26 12:00:37,098][com.sirding.test.TestIniEditorSpread]secname:one	name=one_after	flag=tcp	
+tcp_ip:192.168.8.1
+tcp_port:11
+udp_ip:null
+udp_portnull
+msg:null
+[DEBUG][2016-06-26 12:00:37,099][com.sirding.test.TestIniEditorSpread]secname:two	name=two_after	flag=udp	
+tcp_ip:null
+tcp_port:null
+udp_ip:192.168.8.2
+udp_port22
+msg:测试添加udp配置信息
+[DEBUG][2016-06-26 12:02:41,429][com.sirding.service.impl.SecServiceImpl]配置信息将保存到【E:/git/github/inieditor-spread/target/test-classes/complex.ini】文件中
+[DEBUG][2016-06-26 12:02:41,468][com.sirding.service.impl.SecServiceImpl]配置信息已成功保存到文件中......
+[DEBUG][2016-06-26 12:03:49,062][com.sirding.service.impl.SecServiceImpl]配置信息将保存到【E:/git/github/inieditor-spread/target/test-classes/complex.ini】文件中
+[DEBUG][2016-06-26 12:03:49,104][com.sirding.service.impl.SecServiceImpl]配置信息已成功保存到文件中......
+[DEBUG][2016-06-26 12:04:22,800][com.sirding.service.impl.SecServiceImpl]从【E:/git/github/inieditor-spread/target/test-classes/complex.ini】文件中加载配置信息
+[DEBUG][2016-06-26 12:04:22,846][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.tcpPort-tcp_port
+[DEBUG][2016-06-26 12:04:22,846][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.flag-flag
+[DEBUG][2016-06-26 12:04:22,846][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.name-name
+[DEBUG][2016-06-26 12:04:22,847][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.tcpIp-tcp_ip
+[DEBUG][2016-06-26 12:04:22,856][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.udpPort-udp_port
+[DEBUG][2016-06-26 12:04:22,857][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.flag-flag
+[DEBUG][2016-06-26 12:04:22,858][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.name-name
+[DEBUG][2016-06-26 12:04:22,859][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.udpIp-udp_ip
+[DEBUG][2016-06-26 12:04:22,860][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.msg-msg
+[DEBUG][2016-06-26 12:04:22,863][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.tcpPort-tcp_port
+[DEBUG][2016-06-26 12:04:22,864][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.flag-flag
+[DEBUG][2016-06-26 12:04:22,864][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.name-name
+[DEBUG][2016-06-26 12:04:22,865][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.msg-msg
+[DEBUG][2016-06-26 12:04:22,865][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.tcpIp-tcp_ip
+[DEBUG][2016-06-26 12:04:22,867][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.udpPort-udp_port
+[DEBUG][2016-06-26 12:04:22,870][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.flag-flag
+[DEBUG][2016-06-26 12:04:22,871][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.name-name
+[DEBUG][2016-06-26 12:04:22,871][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.udpIp-udp_ip
+[DEBUG][2016-06-26 12:04:22,872][com.sirding.service.impl.SecServiceImpl]private java.lang.String com.sirding.test.Complex.msg-msg
+[DEBUG][2016-06-26 12:04:22,872][com.sirding.test.TestIniEditorSpread]secname:one	name=one_after	flag=tcp	
+tcp_ip:192.168.8.1
+tcp_port:11
+udp_ip:null
+udp_portnull
+msg:null
+[DEBUG][2016-06-26 12:04:22,873][com.sirding.test.TestIniEditorSpread]secname:two	name=two_after	flag=udp	
+tcp_ip:null
+tcp_port:null
+udp_ip:192.168.8.2
+udp_port22
+msg:测试添加udp配置信息
+[DEBUG][2016-06-26 12:04:22,873][com.sirding.test.TestIniEditorSpread]secname:three	name=three_after	flag=tcp	
+tcp_ip:192.168.8.1
+tcp_port:11
+udp_ip:null
+udp_portnull
+msg:测试添加tcp/udp配置信息
+[DEBUG][2016-06-26 12:04:22,874][com.sirding.test.TestIniEditorSpread]secname:four	name=four_after	flag=udp	
+tcp_ip:null
+tcp_port:null
+udp_ip:192.168.8.2
+udp_port22
+msg:测试添加tcp/udp配置信息
+[DEBUG][2016-06-26 12:22:29,095][com.sirding.service.impl.SecServiceImpl]配置信息将保存到【E:/git/github/inieditor-spread/target/test-classes/complex.ini】文件中
+[DEBUG][2016-06-26 12:22:29,177][com.sirding.service.impl.SecServiceImpl]配置信息已成功保存到文件中......
+[DEBUG][2016-06-26 12:23:01,201][com.sirding.service.impl.SecServiceImpl]配置信息将保存到【E:/git/github/inieditor-spread/target/test-classes/complex.ini】文件中
+[DEBUG][2016-06-26 12:23:01,244][com.sirding.service.impl.SecServiceImpl]配置信息已成功保存到文件中......

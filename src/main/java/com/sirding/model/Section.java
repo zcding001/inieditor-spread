@@ -43,7 +43,6 @@ public class Section {
 	private Map<String, Options> ignoreMap = new HashMap<String, Options>();
 	//用于存储节点属性的顺序
 	private List<String> list = new ArrayList<String>();
-	
 	private Set<String> ignoreSet = new HashSet<String>();
 
 	public String getSectionName() {

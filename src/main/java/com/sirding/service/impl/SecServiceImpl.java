@@ -8,6 +8,7 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 
 import com.sirding.annotation.AssertKey;
+import com.sirding.annotation.Complate;
 import com.sirding.annotation.Option;
 import com.sirding.model.Options;
 import com.sirding.model.Section;
@@ -71,7 +72,7 @@ public class SecServiceImpl implements SecService {
 	}
 
 	public <E> List<E> loadSec(Class<?> clazz, String filePath) throws Exception {
-		logger.debug("配置信息将保存到【" + filePath + "】文件中");
+		logger.debug("从【" + filePath + "】文件中加载配置信息");
 		IniEditor iniEditor = new IniEditor(true);
 		iniEditor.load(filePath);
 		List<E> list = this.loadSec(clazz, iniEditor);
@@ -79,7 +80,7 @@ public class SecServiceImpl implements SecService {
 	}
 	
 	public <E> List<E> loadSec(Class<?> clazz, String filePath, String flag, String... params) throws Exception {
-		logger.debug("配置信息将保存到【" + filePath + "】文件中");
+		logger.debug("从【" + filePath + "】文件中加载配置信息");
 		IniEditor iniEditor = new IniEditor(true);
 		iniEditor.load(filePath);
 		List<E> list = this.loadSec(clazz, iniEditor, flag, params);
@@ -115,7 +116,7 @@ public class SecServiceImpl implements SecService {
 	}
 
 	public <E> List<E> loadSec(Object obj, String filePath) throws Exception {
-		logger.debug("配置信息将保存到【" + filePath + "】文件中");
+		logger.debug("从【" + filePath + "】文件中加载配置信息");
 		if(obj != null){
 			IniEditor iniEditor = new IniEditor(true);
 			iniEditor.load(filePath);
@@ -126,7 +127,7 @@ public class SecServiceImpl implements SecService {
 	}
 
 	public <E> List<E> loadSec(Object obj, String filePath, String flag, String... params) throws Exception {
-		logger.debug("配置信息将保存到【" + filePath + "】文件中");
+		logger.debug("从【" + filePath + "】文件中加载配置信息");
 		if(obj != null){
 			IniEditor iniEditor = new IniEditor(true);
 			iniEditor.load(filePath);
@@ -178,7 +179,6 @@ public class SecServiceImpl implements SecService {
 			if(ignoreOpt != null && ignoreOpt.getPriority() >= opt.getPriority()){
 				continue;
 			}
-			
 			if(opt.isBlankLine()){
 				conf.addBlankLine(sectionName);
 			}
@@ -216,7 +216,6 @@ public class SecServiceImpl implements SecService {
 							sectionField.setSectionNameField(field);
 						}else{
 							sectionField.getSectionOptionsList().add(field);
-//							sectionField.getSectionOptionsMap().put(field.getName(), field);
 							if(option.key() != null && option.key().length() > 0){
 								sectionField.getSectionOptionsMap().put(option.key(), field);
 							}else{
@@ -232,6 +231,29 @@ public class SecServiceImpl implements SecService {
 		}
 		return sectionField;
 	}
+	
+	/**
+	 * 调用Complate注解中方法
+	 * @param obj
+	 * @param flag 0:before、after都调用， 1：只调用before方法 2：只调用after方法
+	 */
+	private void callComplateMethod(Object obj, String flag){
+		Complate complate = obj.getClass().getAnnotation(Complate.class);
+		if(complate != null){
+			if("0".equals(flag) || "1".equals(flag)){
+				String beforeMethod = complate.before();
+				if(beforeMethod != null && beforeMethod.length() > 0){
+					ReflectUtil.callAssignedMethod(obj, beforeMethod);
+				}
+			}
+			if("0".equals(flag) || "2".equals(flag)){
+				String afterMethod = complate.after();
+				if(afterMethod != null && afterMethod.length() > 0){
+					ReflectUtil.callAssignedMethod(obj, afterMethod);
+				}
+			}
+		}
+	}
 
 	/**
 	 * 通过属性及属性上的注解获得要持久化到配置的name和value
@@ -242,6 +264,8 @@ public class SecServiceImpl implements SecService {
 	private Section getSection(SectionField sectionField){
 		Section section = new Section();
 		Object obj = sectionField.getObj();
+		//解析处理Complate注解的before属性
+		this.callComplateMethod(obj, "1");
 		//获得节点name的属性
 		Field sectionNameField = sectionField.getSectionNameField();
 		Option option = sectionNameField.getAnnotation(Option.class);
@@ -305,6 +329,27 @@ public class SecServiceImpl implements SecService {
 				}
 				opt.setBlankLine(option.blankLine());
 				section.setComment(option.comment());
+				
+				boolean notSureFlag = false;
+				Complate complate = obj.getClass().getAnnotation(Complate.class);
+				if(complate != null){
+					String[] notSureArr = complate.notSure();
+					if(notSureArr != null && notSureArr.length > 0){
+						for(String tmp : notSureArr){
+							if(tmp != null && (tmp.equalsIgnoreCase(opt.getName()) || tmp.equalsIgnoreCase(optField.getName()))){
+								if(section.getMap().containsKey(opt.getName())){
+									opt.setPriority(section.getMap().get(opt.getName()).getPriority());
+									section.getMap().put(opt.getName(), opt);
+								}
+								notSureFlag = true;
+								break;
+							}
+						}
+					}
+				}
+				if(notSureFlag){
+					continue;
+				}
 				//不确定属性
 				if(option.notSure()){
 					if(section.getMap().containsKey(opt.getName())){
@@ -382,9 +427,10 @@ public class SecServiceImpl implements SecService {
 				for(String name : map.keySet()){
 					Object value = map.get(name).getValue();
 					Field sectionOptionsField = sectionField.getSectionOptionsMap().get(name);
-					logger.debug(sectionOptionsField + "-" + name);
 					ReflectUtil.callSetMethod(obj, sectionOptionsField, value);
 				}
+				//解析complate
+				this.callComplateMethod(obj, "2");
 				objList.add((E)obj);
 			}
 		} catch (Exception e) {
@@ -480,7 +526,8 @@ public class SecServiceImpl implements SecService {
 	}
 
 	@SuppressWarnings("unchecked")
-	public <E> List<E> loadList(Class<?> clazz) {
+	@Deprecated
+	public <E> List<E> loadListForTest(Class<?> clazz) {
 		try {
 			List<E> list = new ArrayList<E>();
 			for(int i = 0; i < 5; i++){
