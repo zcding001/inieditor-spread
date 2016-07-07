@@ -338,3 +338,13 @@ msg:æµ‹è¯•æ·»åŠ tcp/udpé…ç½®ä¿¡æ¯
 [DEBUG][2016-06-26 12:22:29,177][com.sirding.service.impl.SecServiceImpl]é…ç½®ä¿¡æ¯å·²æˆåŠŸä¿å­˜åˆ°æ–‡ä»¶ä¸­......
 [DEBUG][2016-06-26 12:23:01,201][com.sirding.service.impl.SecServiceImpl]é…ç½®ä¿¡æ¯å°†ä¿å­˜åˆ°ã€E:/git/github/inieditor-spread/target/test-classes/complex.iniã€‘æ–‡ä»¶ä¸­
 [DEBUG][2016-06-26 12:23:01,244][com.sirding.service.impl.SecServiceImpl]é…ç½®ä¿¡æ¯å·²æˆåŠŸä¿å­˜åˆ°æ–‡ä»¶ä¸­......
+[INFO][2016-07-07 10:03:25,529][com.sirding.test.TestIniEditorSpread]null==null
+[INFO][2016-07-07 10:03:25,533][com.sirding.test.TestIniEditorSpread]null==null
+[INFO][2016-07-07 10:03:25,534][com.sirding.test.TestIniEditorSpread]null==null
+[INFO][2016-07-07 10:03:25,535][com.sirding.test.TestIniEditorSpread]null==null
+[INFO][2016-07-07 10:03:25,535][com.sirding.test.TestIniEditorSpread]null==null
+[DEBUG][2016-07-07 10:03:25,537][com.sirding.service.impl.SecServiceImpl]´Ó¡¾C:/yrtz/project4ecplise/inieditor-spread/target/test-classes/simple.ini¡¿ÎÄ¼şÖĞ¼ÓÔØÅäÖÃĞÅÏ¢
+[DEBUG][2016-07-07 10:03:25,570][com.sirding.service.impl.SecServiceImpl]ÅäÖÃĞÅÏ¢½«±£´æµ½¡¾C:/yrtz/project4ecplise/inieditor-spread/target/test-classes/complex.ini¡¿ÎÄ¼şÖĞ
+[DEBUG][2016-07-07 10:03:25,639][com.sirding.service.impl.SecServiceImpl]ÅäÖÃĞÅÏ¢½«±£´æµ½¡¾C:/yrtz/project4ecplise/inieditor-spread/target/test-classes/complex.ini¡¿ÎÄ¼şÖĞ
+[DEBUG][2016-07-07 10:03:25,681][com.sirding.service.impl.SecServiceImpl]´Ó¡¾C:/yrtz/project4ecplise/inieditor-spread/target/test-classes/complex.ini¡¿ÎÄ¼şÖĞ¼ÓÔØÅäÖÃĞÅÏ¢
+[DEBUG][2016-07-07 10:03:25,696][com.sirding.service.impl.SecServiceImpl]ÅäÖÃĞÅÏ¢½«±£´æµ½¡¾C:/yrtz/project4ecplise/inieditor-spread/target/test-classes/simple.ini¡¿ÎÄ¼şÖĞ
