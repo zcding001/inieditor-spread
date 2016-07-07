@@ -348,3 +348,159 @@ msg:娴嬭瘯娣诲姞tcp/udp閰嶇疆淇℃伅
 [DEBUG][2016-07-07 10:03:25,639][com.sirding.service.impl.SecServiceImpl]配置信息将保存到【C:/yrtz/project4ecplise/inieditor-spread/target/test-classes/complex.ini】文件中
 [DEBUG][2016-07-07 10:03:25,681][com.sirding.service.impl.SecServiceImpl]从【C:/yrtz/project4ecplise/inieditor-spread/target/test-classes/complex.ini】文件中加载配置信息
 [DEBUG][2016-07-07 10:03:25,696][com.sirding.service.impl.SecServiceImpl]配置信息将保存到【C:/yrtz/project4ecplise/inieditor-spread/target/test-classes/simple.ini】文件中
+[INFO][2016-07-07 14:18:30,682][com.sirding.test.TestIniEditorSpread]null==null
+[INFO][2016-07-07 14:18:30,687][com.sirding.test.TestIniEditorSpread]null==null
+[INFO][2016-07-07 14:18:30,687][com.sirding.test.TestIniEditorSpread]null==null
+[INFO][2016-07-07 14:18:30,687][com.sirding.test.TestIniEditorSpread]null==null
+[INFO][2016-07-07 14:18:30,688][com.sirding.test.TestIniEditorSpread]null==null
+[DEBUG][2016-07-07 14:18:30,693][com.sirding.service.impl.SecServiceImpl]配置信息将保存到【C:/yrtz/project4ecplise/inieditor-spreads/target/test-classes/simple.ini】文件中
+[DEBUG][2016-07-07 14:18:30,720][com.sirding.service.impl.SecServiceImpl]配置信息已成功保存到文件中......
+[DEBUG][2016-07-07 14:18:30,724][com.sirding.service.impl.SecServiceImpl]从【C:/yrtz/project4ecplise/inieditor-spreads/target/test-classes/simple.ini】文件中加载配置信息
+[DEBUG][2016-07-07 14:18:30,746][com.sirding.test.TestIniEditorSpread]节点：one	name:one	 msg:add one
+[DEBUG][2016-07-07 14:18:30,751][com.sirding.test.TestIniEditorSpread]节点：two	name:two	 msg:add 绗簩鏉￠厤缃俊鎭?
+[DEBUG][2016-07-07 14:18:30,754][com.sirding.test.TestIniEditorSpread]节点：three	name:three	 msg:hello world，你好，世界
+[DEBUG][2016-07-07 14:18:30,758][com.sirding.service.impl.SecServiceImpl]配置信息将保存到【C:/yrtz/project4ecplise/inieditor-spreads/target/test-classes/complex.ini】文件中
+[DEBUG][2016-07-07 14:18:30,770][com.sirding.service.impl.SecServiceImpl]配置信息已成功保存到文件中......
+[DEBUG][2016-07-07 14:18:30,773][com.sirding.service.impl.SecServiceImpl]从【C:/yrtz/project4ecplise/inieditor-spreads/target/test-classes/complex.ini】文件中加载配置信息
+[DEBUG][2016-07-07 14:18:30,781][com.sirding.test.TestIniEditorSpread]secname:one	name=one_after	flag=tcp	
+tcp_ip:192.168.8.1
+tcp_port:11
+udp_ip:null
+udp_portnull
+msg:null
+[DEBUG][2016-07-07 14:18:30,781][com.sirding.test.TestIniEditorSpread]secname:two	name=two_after	flag=udp	
+tcp_ip:null
+tcp_port:null
+udp_ip:192.168.8.2
+udp_port22
+msg:娴嬭瘯娣诲姞udp閰嶇疆淇℃伅
+[DEBUG][2016-07-07 14:18:30,784][com.sirding.test.TestIniEditorSpread]secname:three	name=three_after	flag=tcp	
+tcp_ip:192.168.8.1
+tcp_port:11
+udp_ip:null
+udp_portnull
+msg:娴嬭瘯娣诲姞tcp/udp閰嶇疆淇℃伅
+[DEBUG][2016-07-07 14:18:30,786][com.sirding.test.TestIniEditorSpread]secname:four	name=four_after	flag=udp	
+tcp_ip:null
+tcp_port:null
+udp_ip:192.168.8.2
+udp_port22
+msg:测试添加tcp/udp配置信息
+[DEBUG][2016-07-07 14:18:30,788][com.sirding.test.TestIniEditorSpread]secname:five	name=five_after	flag=tcp	
+tcp_ip:192.168.8.1
+tcp_port:11
+udp_ip:null
+udp_portnull
+msg:娴嬭瘯娣诲姞tcp/udp閰嶇疆淇℃伅
+[DEBUG][2016-07-07 14:18:30,790][com.sirding.test.TestIniEditorSpread]secname:six	name=six_after	flag=udp	
+tcp_ip:null
+tcp_port:null
+udp_ip:192.168.8.2
+udp_port22
+msg:娴嬭瘯娣诲姞tcp/udp閰嶇疆淇℃伅
+[DEBUG][2016-07-07 14:18:30,797][com.sirding.service.impl.SecServiceImpl]配置信息将保存到【C:/yrtz/project4ecplise/inieditor-spreads/target/test-classes/complex.ini】文件中
+[DEBUG][2016-07-07 14:18:30,803][com.sirding.service.impl.SecServiceImpl]配置信息已成功保存到文件中......
+[DEBUG][2016-07-07 14:23:35,035][com.sirding.service.impl.SecServiceImpl]配置信息将保存到【C:/yrtz/project4ecplise/inieditor-spreads/target/test-classes/complex.ini】文件中
+[DEBUG][2016-07-07 14:23:35,067][com.sirding.service.impl.SecServiceImpl]配置信息已成功保存到文件中......
+[DEBUG][2016-07-07 14:23:35,076][com.sirding.service.impl.SecServiceImpl]从【C:/yrtz/project4ecplise/inieditor-spreads/target/test-classes/simple.ini】文件中加载配置信息
+[DEBUG][2016-07-07 14:23:35,084][com.sirding.test.TestIniEditorSpread]节点：one	name:one	 msg:add one
+[DEBUG][2016-07-07 14:23:35,084][com.sirding.test.TestIniEditorSpread]节点：two	name:two	 msg:add 绗簩鏉￠厤缃俊鎭?
+[DEBUG][2016-07-07 14:23:35,085][com.sirding.test.TestIniEditorSpread]节点：three	name:three	 msg:hello world，你好，世界
+[DEBUG][2016-07-07 14:23:35,090][com.sirding.service.impl.SecServiceImpl]配置信息将保存到【C:/yrtz/project4ecplise/inieditor-spreads/target/test-classes/complex.ini】文件中
+[DEBUG][2016-07-07 14:23:35,107][com.sirding.service.impl.SecServiceImpl]配置信息已成功保存到文件中......
+[DEBUG][2016-07-07 14:23:35,113][com.sirding.service.impl.SecServiceImpl]从【C:/yrtz/project4ecplise/inieditor-spreads/target/test-classes/complex.ini】文件中加载配置信息
+[DEBUG][2016-07-07 14:23:35,124][com.sirding.test.TestIniEditorSpread]secname:one	name=one_after	flag=tcp	
+tcp_ip:192.168.8.1
+tcp_port:11
+udp_ip:null
+udp_portnull
+msg:null
+[DEBUG][2016-07-07 14:23:35,125][com.sirding.test.TestIniEditorSpread]secname:two	name=two_after	flag=udp	
+tcp_ip:null
+tcp_port:null
+udp_ip:192.168.8.2
+udp_port22
+msg:娴嬭瘯娣诲姞udp閰嶇疆淇℃伅
+[DEBUG][2016-07-07 14:23:35,125][com.sirding.test.TestIniEditorSpread]secname:three	name=three_after	flag=tcp	
+tcp_ip:192.168.8.1
+tcp_port:11
+udp_ip:null
+udp_portnull
+msg:娴嬭瘯娣诲姞tcp/udp閰嶇疆淇℃伅
+[DEBUG][2016-07-07 14:23:35,126][com.sirding.test.TestIniEditorSpread]secname:four	name=four_after	flag=udp	
+tcp_ip:null
+tcp_port:null
+udp_ip:192.168.8.2
+udp_port22
+msg:测试添加tcp/udp配置信息
+[DEBUG][2016-07-07 14:23:35,126][com.sirding.test.TestIniEditorSpread]secname:five	name=five_after	flag=tcp	
+tcp_ip:192.168.8.1
+tcp_port:11
+udp_ip:null
+udp_portnull
+msg:娴嬭瘯娣诲姞tcp/udp閰嶇疆淇℃伅
+[DEBUG][2016-07-07 14:23:35,126][com.sirding.test.TestIniEditorSpread]secname:six	name=six_after	flag=udp	
+tcp_ip:null
+tcp_port:null
+udp_ip:192.168.8.2
+udp_port22
+msg:测试添加tcp/udp配置信息
+[INFO][2016-07-07 14:23:35,127][com.sirding.test.TestIniEditorSpread]null==null
+[INFO][2016-07-07 14:23:35,133][com.sirding.test.TestIniEditorSpread]null==null
+[INFO][2016-07-07 14:23:35,134][com.sirding.test.TestIniEditorSpread]null==null
+[INFO][2016-07-07 14:23:35,134][com.sirding.test.TestIniEditorSpread]null==null
+[INFO][2016-07-07 14:23:35,134][com.sirding.test.TestIniEditorSpread]null==null
+[DEBUG][2016-07-07 14:23:35,135][com.sirding.service.impl.SecServiceImpl]配置信息将保存到【C:/yrtz/project4ecplise/inieditor-spreads/target/test-classes/simple.ini】文件中
+[DEBUG][2016-07-07 14:23:35,137][com.sirding.service.impl.SecServiceImpl]配置信息已成功保存到文件中......
+[DEBUG][2016-07-07 14:34:52,324][com.sirding.service.impl.SecServiceImpl]配置信息将保存到【C:/yrtz/project4ecplise/inieditor-spreads/target/test-classes/simple.ini】文件中
+[DEBUG][2016-07-07 14:34:52,368][com.sirding.service.impl.SecServiceImpl]配置信息已成功保存到文件中......
+[DEBUG][2016-07-07 14:34:52,376][com.sirding.service.impl.SecServiceImpl]从【C:/yrtz/project4ecplise/inieditor-spreads/target/test-classes/simple.ini】文件中加载配置信息
+[DEBUG][2016-07-07 14:34:52,390][com.sirding.test.TestIniEditorSpread]节点：one	name:one	 msg:add one
+[DEBUG][2016-07-07 14:34:52,391][com.sirding.test.TestIniEditorSpread]节点：two	name:two	 msg:add 绗簩鏉￠厤缃俊鎭?
+[DEBUG][2016-07-07 14:34:52,391][com.sirding.test.TestIniEditorSpread]节点：three	name:three	 msg:hello world，你好，世界
+[DEBUG][2016-07-07 14:34:52,396][com.sirding.service.impl.SecServiceImpl]配置信息将保存到【C:/yrtz/project4ecplise/inieditor-spreads/target/test-classes/complex.ini】文件中
+[DEBUG][2016-07-07 14:34:52,405][com.sirding.service.impl.SecServiceImpl]配置信息已成功保存到文件中......
+[DEBUG][2016-07-07 14:34:52,413][com.sirding.service.impl.SecServiceImpl]从【C:/yrtz/project4ecplise/inieditor-spreads/target/test-classes/complex.ini】文件中加载配置信息
+[DEBUG][2016-07-07 14:34:52,434][com.sirding.test.TestIniEditorSpread]secname:one	name=one_after	flag=tcp	
+tcp_ip:192.168.8.1
+tcp_port:11
+udp_ip:null
+udp_portnull
+msg:null
+[DEBUG][2016-07-07 14:34:52,434][com.sirding.test.TestIniEditorSpread]secname:two	name=two_after	flag=udp	
+tcp_ip:null
+tcp_port:null
+udp_ip:192.168.8.2
+udp_port22
+msg:娴嬭瘯娣诲姞udp閰嶇疆淇℃伅
+[DEBUG][2016-07-07 14:34:52,436][com.sirding.test.TestIniEditorSpread]secname:three	name=three_after	flag=tcp	
+tcp_ip:192.168.8.1
+tcp_port:11
+udp_ip:null
+udp_portnull
+msg:娴嬭瘯娣诲姞tcp/udp閰嶇疆淇℃伅
+[DEBUG][2016-07-07 14:34:52,439][com.sirding.test.TestIniEditorSpread]secname:four	name=four_after	flag=udp	
+tcp_ip:null
+tcp_port:null
+udp_ip:192.168.8.2
+udp_port22
+msg:测试添加tcp/udp配置信息
+[DEBUG][2016-07-07 14:34:52,442][com.sirding.test.TestIniEditorSpread]secname:five	name=five_after	flag=tcp	
+tcp_ip:192.168.8.1
+tcp_port:11
+udp_ip:null
+udp_portnull
+msg:娴嬭瘯娣诲姞tcp/udp閰嶇疆淇℃伅
+[DEBUG][2016-07-07 14:34:52,466][com.sirding.test.TestIniEditorSpread]secname:six	name=six_after	flag=udp	
+tcp_ip:null
+tcp_port:null
+udp_ip:192.168.8.2
+udp_port22
+msg:测试添加tcp/udp配置信息
+[DEBUG][2016-07-07 14:34:52,503][com.sirding.service.impl.SecServiceImpl]配置信息将保存到【C:/yrtz/project4ecplise/inieditor-spreads/target/test-classes/complex.ini】文件中
+[DEBUG][2016-07-07 14:34:52,541][com.sirding.service.impl.SecServiceImpl]配置信息已成功保存到文件中......
+[INFO][2016-07-07 14:34:52,546][com.sirding.test.TestIniEditorSpread]null==null
+[INFO][2016-07-07 14:34:52,550][com.sirding.test.TestIniEditorSpread]null==null
+[INFO][2016-07-07 14:34:52,553][com.sirding.test.TestIniEditorSpread]null==null
+[INFO][2016-07-07 14:34:52,553][com.sirding.test.TestIniEditorSpread]null==null
+[INFO][2016-07-07 14:34:52,554][com.sirding.test.TestIniEditorSpread]null==null

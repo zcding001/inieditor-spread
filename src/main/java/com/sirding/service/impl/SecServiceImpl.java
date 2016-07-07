@@ -62,7 +62,7 @@ public class SecServiceImpl implements SecService {
 		return new ArrayList<E>();
 	}
 
-	public synchronized <E> List<E> loadSec(Class<?> clazz, String flag, String... params) throws Exception {
+	public synchronized <E> List<E> loadSec(Class<?> clazz, boolean flag, String... params) throws Exception {
 		Object obj = clazz.newInstance();
 		String filePath = (String)ReflectUtil.getFieldValue(obj, FILE_PATH);
 		if(this.filePathIsExist(filePath)){
@@ -79,7 +79,7 @@ public class SecServiceImpl implements SecService {
 		return list;
 	}
 	
-	public <E> List<E> loadSec(Class<?> clazz, String filePath, String flag, String... params) throws Exception {
+	public <E> List<E> loadSec(Class<?> clazz, String filePath, boolean flag, String... params) throws Exception {
 		logger.debug("从【" + filePath + "】文件中加载配置信息");
 		IniEditor iniEditor = new IniEditor(true);
 		iniEditor.load(filePath);
@@ -91,8 +91,12 @@ public class SecServiceImpl implements SecService {
 		return this.getSections(iniEditor, null, clazz, null);
 	}
 
-	public <E> List<E> loadSec(Class<?> clazz, IniEditor iniEditor, String flag, String... params) throws Exception {
-		return this.getSections(iniEditor, null, clazz, flag, params);
+	public <E> List<E> loadSec(Class<?> clazz, IniEditor iniEditor, boolean flag, String... params) throws Exception {
+		String flagTmp = "0";
+		if(flag){
+			flagTmp = "1";
+		}
+		return this.getSections(iniEditor, null, clazz, flagTmp, params);
 	}
 
 	public <E> List<E> loadSec(Object obj) throws Exception {
@@ -105,7 +109,7 @@ public class SecServiceImpl implements SecService {
 		return new ArrayList<E>();
 	}
 
-	public <E> List<E> loadSec(Object obj, String flag, String... params) throws Exception {
+	public <E> List<E> loadSec(Object obj, boolean flag, String... params) throws Exception {
 		if(obj != null){
 			String filePath = (String)ReflectUtil.getFieldValue(obj, FILE_PATH);
 			if(this.filePathIsExist(filePath)){
@@ -126,7 +130,7 @@ public class SecServiceImpl implements SecService {
 		return new ArrayList<E>();
 	}
 
-	public <E> List<E> loadSec(Object obj, String filePath, String flag, String... params) throws Exception {
+	public <E> List<E> loadSec(Object obj, String filePath, boolean flag, String... params) throws Exception {
 		logger.debug("从【" + filePath + "】文件中加载配置信息");
 		if(obj != null){
 			IniEditor iniEditor = new IniEditor(true);
@@ -145,10 +149,14 @@ public class SecServiceImpl implements SecService {
 	}
 
 	/**
-	 * 加载配置问价关键接口
+	 * 加载配置文件关键接口
 	 */
-	public <E> List<E> loadSec(Object obj, IniEditor iniEditor, String flag, String... params) throws Exception {
-		return this.getSections(iniEditor, obj, null, flag, params);
+	public <E> List<E> loadSec(Object obj, IniEditor iniEditor, boolean flag, String... params) throws Exception {
+		String flagTmp = "0";
+		if(flag){
+			flagTmp = "1";
+		}
+		return this.getSections(iniEditor, obj, null, flagTmp, params);
 	}
 	
 	/**
@@ -538,5 +546,59 @@ public class SecServiceImpl implements SecService {
 			e.printStackTrace();
 		}
 		return new ArrayList<E>();
+	}
+
+	@Override
+	public <E> E loadSingleSec(Class<?> clazz) throws Exception {
+		List<E> list = this.loadSec(clazz);
+		if(list != null && list.size() > 0){
+			return list.get(0);
+		}
+		return null;
+	}
+
+	@Override
+	public <E> E loadSingleSec(Class<?> clazz, boolean flag, String... params) throws Exception {
+		List<E> list = this.loadSec(clazz, flag, params);
+		if(list != null && list.size() > 0){
+			return list.get(0);
+		}
+		return null;
+	}
+
+	@Override
+	public <E> E loadSingleSec(Class<?> clazz, String filePath) throws Exception {
+		List<E> list = this.loadSec(clazz, filePath);
+		if(list != null && list.size() > 0){
+			return list.get(0);
+		}
+		return null;
+	}
+
+	@Override
+	public <E> E loadSingleSec(Class<?> clazz, String filePath, boolean flag, String... params) throws Exception {
+		List<E> list = this.loadSec(clazz, filePath, flag, params);
+		if(list != null && list.size() > 0){
+			return list.get(0);
+		}
+		return null;
+	}
+
+	@Override
+	public <E> E loadSingleSec(Class<?> clazz, IniEditor iniEditor) throws Exception {
+		List<E> list = this.loadSec(clazz, iniEditor);
+		if(list != null && list.size() > 0){
+			return list.get(0);
+		}
+		return null;
+	}
+
+	@Override
+	public <E> E loadSingleSec(Class<?> clazz, IniEditor iniEditor, boolean flag, String... params) throws Exception {
+		List<E> list = this.loadSec(clazz, iniEditor, flag, params);
+		if(list != null && list.size() > 0){
+			return list.get(0);
+		}
+		return null;
 	}
 }

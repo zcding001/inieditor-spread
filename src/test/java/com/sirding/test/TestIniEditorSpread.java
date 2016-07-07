@@ -7,7 +7,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.sirding.singleton.IniTool;
-import com.sirding.singleton.IniToolImp;
 
 public class TestIniEditorSpread {
 	static Logger logger = Logger.getLogger(TestIniEditorSpread.class);
@@ -18,7 +17,7 @@ public class TestIniEditorSpread {
 	
 	@BeforeClass
 	public static void init(){
-		iniTool = IniToolImp.newInstance();
+		iniTool = IniTool.newInstance();
 		filePath = TestIniEditorSpread.class.getResource("/").toString();
 		filePath = filePath.replaceFirst("file:/", "");
 //		filePath = filePath + "test.ini";
