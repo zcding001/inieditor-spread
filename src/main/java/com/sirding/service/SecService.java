@@ -149,9 +149,9 @@ public interface SecService {
 	public <E> List<E> loadSec(Object obj, IniEditor iniEditor, String flag, String... params) throws Exception;
 	
 	/**
-	 * 泛型测试接口
+	 * 用于开发测试泛型接口
 	 * @param clazz
 	 * @return
 	 */
-	public <E> List<E> loadList(Class<?> clazz);  
+	public <E> List<E> loadListForTest(Class<?> clazz);  
 }

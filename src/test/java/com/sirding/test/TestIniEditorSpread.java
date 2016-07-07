@@ -12,59 +12,84 @@ import com.sirding.singleton.IniToolImp;
 public class TestIniEditorSpread {
 	static Logger logger = Logger.getLogger(TestIniEditorSpread.class);
 	private static String filePath;
+	private static String simplePath;
+	private static String complexPath;
 	private static IniTool iniTool = null;
 	
 	@BeforeClass
 	public static void init(){
 		iniTool = IniToolImp.newInstance();
 		filePath = TestIniEditorSpread.class.getResource("/").toString();
-		filePath = filePath + "test.ini";
 		filePath = filePath.replaceFirst("file:/", "");
+//		filePath = filePath + "test.ini";
+		simplePath = filePath + "simple.ini";
+		complexPath = filePath + "complex.ini";
 	}
 	
 	@Test
-	public void testGet(){
+	public void testAddSimple(){
 		try {
-			List<Persion> list = iniTool.loadSec(Persion.class, filePath);
-			if(list != null){
-				for(Persion obj : list){
-					logger.info(obj.getSecName() + "\t" + obj.getPwd() + "\t" + obj.getAge());
-				}
+			Simple obj = new Simple("three", "three", 3, "hello world，你好，世界");
+			iniTool.saveSec(obj, simplePath);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void testLoadSimplet(){
+		try {
+			List<Simple> list = iniTool.loadSec(Simple.class, simplePath);
+			for(Simple obj : list){
+				logger.debug("节点：" + obj.getSecName() + "\tname:" + obj.getName() + "\t msg:" + obj.getMsg());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		logger.info(filePath);
 	}
 	
-	/**
-	 * 测试简单的保存操作
-	 */
 	@Test
-	public void testAdd1(){
+	public void testAddComplex(){
 		try {
-			Persion obj = new Persion();
-			obj.setSecName("sirding");
-			obj.setPwd("a12345");
-			obj.setAge(26);
-			obj.setLove("girl");
-			iniTool.saveSec(obj, filePath);
+			Complex obj = new Complex("four", "four", "udp");
+			obj.setTcpIp("192.168.8.1");
+			obj.setTcpPort("11");
+			obj.setUdpIp("192.168.8.2");
+			obj.setUdpPort("22");
+			obj.setMsg("测试添加tcp/udp配置信息");
+			iniTool.saveSec(obj, complexPath);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
 	@Test
-	public void testAdd2(){
+	public void testAddComplex2(){
 		try {
-			Persion2 obj = new Persion2();
-			obj.setSecName("testAAA");
-			obj.setProtool("a");
-			obj.setNamea("a");
-			obj.setPwda("pwda");;
-			obj.setNameb("b");
-			obj.setPwdb("b");
-			iniTool.saveSec(obj, filePath);
+			Complex2 obj = new Complex2("six", "six", "udp");
+			obj.setTcpIp("192.168.8.1");
+			obj.setTcpPort("11");
+			obj.setUdpIp("192.168.8.2");
+			obj.setUdpPort("22");
+			obj.setMsg("测试添加tcp/udp配置信息");
+			iniTool.saveSec(obj, complexPath);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void testLoadComplex(){
+		try {
+			List<Complex> list = iniTool.loadSec(Complex.class, complexPath);
+			for(Complex obj : list){
+				logger.debug("secname:" + obj.getMySecName() + "\tname=" + obj.getName() + "\tflag=" + obj.getFlag() + "\t"
+						+ "\ntcp_ip:" + obj.getTcpIp() + "\n"
+						+ "tcp_port:" + obj.getTcpPort() + "\n"
+						+ "udp_ip:" + obj.getUdpIp() + "\n"
+						+ "udp_port" + obj.getUdpPort() + "\n"
+						+ "msg:" + obj.getMsg());
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -73,11 +98,12 @@ public class TestIniEditorSpread {
 	/**
 	 * 测试枚举类型
 	 */
+	@SuppressWarnings("deprecation")
 	@Test
 	public void testFx(){
-		List<Persion> list = iniTool.loadList(Persion.class);
-		for(Persion obj : list){
-			logger.info(obj.getName());
+		List<Complex> list = iniTool.loadListForTest(Complex.class);
+		for(Complex obj : list){
+			logger.info(obj.getName()  + "==" + obj.getMsg());
 		}
 	}
 }
