@@ -435,6 +435,9 @@ public class SecServiceImpl implements SecService {
 				for(String name : map.keySet()){
 					Object value = map.get(name).getValue();
 					Field sectionOptionsField = sectionField.getSectionOptionsMap().get(name);
+					if(sectionOptionsField == null){
+						logger.error("找不到【" + name +"】对应的属性");
+					}
 					ReflectUtil.callSetMethod(obj, sectionOptionsField, value);
 				}
 				//解析complate
