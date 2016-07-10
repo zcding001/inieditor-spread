@@ -33,6 +33,26 @@ public interface SecService {
 	public void saveSec(Object obj, IniEditor iniEditor) throws Exception;
 	
 	/**
+	 * 删除指定节点配置信息
+	 * @param secs 节点名称，多个节点之间用,分隔
+	 * @param filePath
+	 * @throws Exception
+	 * @author zc.ding
+	 * @date 2016年7月10日
+	 */
+	public void remoteSec(String secs, String filePath) throws Exception;
+	
+	/**
+	 * 删除指定节点配置信息
+	 * @param secs
+	 * @param iniEditor
+	 * @throws Exception
+	 * @author zc.ding
+	 * @date 2016年7月10日
+	 */
+	public void remoteSec(String secs, IniEditor iniEditor) throws Exception;
+	
+	/**
 	 * 将文件中内容加载到对象中，clazz类型的对象中含有CONF_FILE_PATH属性存放文件路径
 	 * @param clazz
 	 * @return

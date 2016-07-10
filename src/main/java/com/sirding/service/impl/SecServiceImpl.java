@@ -604,4 +604,25 @@ public class SecServiceImpl implements SecService {
 		}
 		return null;
 	}
+
+	@Override
+	public void remoteSec(String secs, String filePath) throws Exception {
+		logger.debug("将【" + secs + "】从【" + filePath + "】配置文件中删除...");
+		IniEditor iniEditor = new IniEditor(true);
+		iniEditor.load(filePath);
+		this.remoteSec(secs, iniEditor);
+		iniEditor.save(filePath);
+	}
+
+	@Override
+	public void remoteSec(String secs, IniEditor iniEditor) throws Exception {
+		if(secs != null){
+			String[] arr = secs.split(",");
+			if(arr != null){
+				for(String sec : arr){
+					iniEditor.removeSection(sec);
+				}
+			}
+		}
+	}
 }
