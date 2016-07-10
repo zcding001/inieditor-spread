@@ -44,8 +44,8 @@ public interface SecService {
 	
 	/**
 	 * 删除指定节点配置信息
-	 * @param secs
-	 * @param iniEditor
+	 * @param secs 节点名称，多个节点之间用,分隔
+	 * @param iniEditor 
 	 * @throws Exception
 	 * @author zc.ding
 	 * @date 2016年7月10日
