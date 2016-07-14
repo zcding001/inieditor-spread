@@ -15,9 +15,9 @@
 	</properties>
 
 	<scm>
-		<connection>scm:git:git@github.com:surpass1990/inieditor-spread.git</connection>
-		<developerConnection>scm:git:git@github.com:surpass1990/inieditor-spread.git</developerConnection>
-		<url>git@github.com:surpass1990/inieditor-spread.git</url>
+		<connection>scm:git:git@github.com:surpassE/inieditor-spread.git</connection>
+		<developerConnection>scm:git:git@github.com:surpassE/inieditor-spread.git</developerConnection>
+		<url>git@github.com:surpassE/inieditor-spread.git</url>
 	</scm>
 
 	<developers>
@@ -25,15 +25,18 @@
 			<id>surpass1990</id>
 			<name>sirding</name>
 			<email>iamdzc@sina.com</email>
-			<url>https://github.com/surpass1990</url>
+			<url>https://github.com/surpassE</url>
 		</developer>
 	</developers>
 
+	<licenses>
+		<license>
+			<name>The MIT License (MIT)</name>
+			<url>https://raw.githubusercontent.com/xtuhcy/gecco/master/LICENSE</url>
+		</license>
+	</licenses>
+
 	<dependencies>
-		<!-- <dependency> <groupId>org.testng</groupId> <artifactId>testng</artifactId> 
-			<version>6.9.10</version> <scope>test</scope> </dependency> -->
-
-
 		<!-- http://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -41,9 +44,6 @@
 			<version>4.10</version>
 			<!-- <scope>test</scope> -->
 		</dependency>
-
-		<!-- <dependency> <groupId>com.nikhaldimann</groupId> <artifactId>inieditor</artifactId> 
-			<version>r5</version> </dependency> -->
 
 		<!-- http://mvnrepository.com/artifact/log4j/log4j -->
 		<dependency>
@@ -54,22 +54,16 @@
 	</dependencies>
 
 	<build>
-		<!-- Using non-standard directories, because this started out as an ant 
-			project initially and we don't want to shuffle around directories right now -->
-		<sourceDirectory>src</sourceDirectory>
-		<testSourceDirectory>test</testSourceDirectory>
-
 		<plugins>
-		
-		<plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <configuration>
-                        <source>1.7</source>
-                        <target>1.7</target>
-                        <encoding>UTF-8</encoding>
-                    </configuration>
-                </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
@@ -85,26 +79,25 @@
 				</executions>
 			</plugin>
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.10.2</version>
-                <!-- 配置导出配置 -->
-                <configuration> 
-                    <outputDirectory>target\javadoc</outputDirectory>
-                    <reportOutputDirectory>target\javadoc</reportOutputDirectory>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <phase>site</phase><!-- 去掉这行就会报错，但是目前不生成javadocs -->
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin> 
-            
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.10.2</version>
+				<!-- 配置导出配置 -->
+				<configuration>
+					<outputDirectory>target\javadoc</outputDirectory>
+					<reportOutputDirectory>target\javadoc</reportOutputDirectory>
+				</configuration>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<phase>site</phase><!-- 去掉这行就会报错，但是目前不生成javadocs -->
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 </project>
