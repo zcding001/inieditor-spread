@@ -560,3 +560,55 @@ msg:²âÊÔÌí¼Ótcp/udpÅäÖÃĞÅÏ¢
 [DEBUG][2016-07-10 18:26:47,787][com.sirding.service.impl.SecServiceImpl]é…ç½®ä¿¡æ¯å·²æˆåŠŸä¿å­˜åˆ°æ–‡ä»¶ä¸­......
 [DEBUG][2016-07-10 18:28:08,823][com.sirding.service.impl.SecServiceImpl]é…ç½®ä¿¡æ¯å°†ä¿å­˜åˆ°ã€E:/git/github/inieditor-spread/target/test-classes/simple.iniã€‘æ–‡ä»¶ä¸­
 [DEBUG][2016-07-10 18:28:08,853][com.sirding.service.impl.SecServiceImpl]é…ç½®ä¿¡æ¯å·²æˆåŠŸä¿å­˜åˆ°æ–‡ä»¶ä¸­......
+[DEBUG][2016-07-14 16:35:34,331][com.sirding.service.impl.SecServiceImpl]´Ó¡¾C:/yrtz/project4ecplise/inieditor-spreads/target/test-classes/simple.ini¡¿ÎÄ¼şÖĞ¼ÓÔØÅäÖÃĞÅÏ¢
+[DEBUG][2016-07-14 16:35:34,370][com.sirding.test.TestIniEditorSpread]½Úµã£ºone	name:one	 msg:add one
+[DEBUG][2016-07-14 16:35:34,370][com.sirding.test.TestIniEditorSpread]½Úµã£ºtwo	name:two	 msg:add ç¬¬äºŒæ¡é…ç½®ä¿¡æ?
+[DEBUG][2016-07-14 16:35:34,371][com.sirding.test.TestIniEditorSpread]½Úµã£ºthree	name:three	 msg:hello worldï¼Œä½ å¥½ï¼Œä¸–ç•Œ
+[DEBUG][2016-07-14 16:35:34,378][com.sirding.service.impl.SecServiceImpl]ÅäÖÃĞÅÏ¢½«±£´æµ½¡¾C:/yrtz/project4ecplise/inieditor-spreads/target/test-classes/complex.ini¡¿ÎÄ¼şÖĞ
+[DEBUG][2016-07-14 16:35:34,404][com.sirding.service.impl.SecServiceImpl]ÅäÖÃĞÅÏ¢ÒÑ³É¹¦±£´æµ½ÎÄ¼şÖĞ......
+[DEBUG][2016-07-14 16:35:34,415][com.sirding.service.impl.SecServiceImpl]´Ó¡¾C:/yrtz/project4ecplise/inieditor-spreads/target/test-classes/complex.ini¡¿ÎÄ¼şÖĞ¼ÓÔØÅäÖÃĞÅÏ¢
+[DEBUG][2016-07-14 16:35:34,433][com.sirding.test.TestIniEditorSpread]secname:one	name=one_after	flag=tcp	
+tcp_ip:192.168.8.1
+tcp_port:11
+udp_ip:null
+udp_portnull
+msg:null
+[DEBUG][2016-07-14 16:35:34,433][com.sirding.test.TestIniEditorSpread]secname:two	name=two_after	flag=udp	
+tcp_ip:null
+tcp_port:null
+udp_ip:192.168.8.2
+udp_port22
+msg:æµ‹è¯•æ·»åŠ udpé…ç½®ä¿¡æ¯
+[DEBUG][2016-07-14 16:35:34,434][com.sirding.test.TestIniEditorSpread]secname:three	name=three_after	flag=tcp	
+tcp_ip:192.168.8.1
+tcp_port:11
+udp_ip:null
+udp_portnull
+msg:æµ‹è¯•æ·»åŠ tcp/udpé…ç½®ä¿¡æ¯
+[DEBUG][2016-07-14 16:35:34,435][com.sirding.test.TestIniEditorSpread]secname:four	name=four_after	flag=udp	
+tcp_ip:null
+tcp_port:null
+udp_ip:192.168.8.2
+udp_port22
+msg:²âÊÔÌí¼Ótcp/udpÅäÖÃĞÅÏ¢
+[DEBUG][2016-07-14 16:35:34,436][com.sirding.test.TestIniEditorSpread]secname:five	name=five_after	flag=tcp	
+tcp_ip:192.168.8.1
+tcp_port:11
+udp_ip:null
+udp_portnull
+msg:æµ‹è¯•æ·»åŠ tcp/udpé…ç½®ä¿¡æ¯
+[DEBUG][2016-07-14 16:35:34,436][com.sirding.test.TestIniEditorSpread]secname:six	name=six_after	flag=udp	
+tcp_ip:null
+tcp_port:null
+udp_ip:192.168.8.2
+udp_port22
+msg:æµ‹è¯•æ·»åŠ tcp/udpé…ç½®ä¿¡æ¯
+[DEBUG][2016-07-14 16:35:34,446][com.sirding.service.impl.SecServiceImpl]ÅäÖÃĞÅÏ¢½«±£´æµ½¡¾C:/yrtz/project4ecplise/inieditor-spreads/target/test-classes/complex.ini¡¿ÎÄ¼şÖĞ
+[DEBUG][2016-07-14 16:35:34,451][com.sirding.service.impl.SecServiceImpl]ÅäÖÃĞÅÏ¢ÒÑ³É¹¦±£´æµ½ÎÄ¼şÖĞ......
+[DEBUG][2016-07-14 16:35:34,456][com.sirding.service.impl.SecServiceImpl]ÅäÖÃĞÅÏ¢½«±£´æµ½¡¾C:/yrtz/project4ecplise/inieditor-spreads/target/test-classes/simple.ini¡¿ÎÄ¼şÖĞ
+[DEBUG][2016-07-14 16:35:34,463][com.sirding.service.impl.SecServiceImpl]ÅäÖÃĞÅÏ¢ÒÑ³É¹¦±£´æµ½ÎÄ¼şÖĞ......
+[INFO][2016-07-14 16:35:34,468][com.sirding.test.TestIniEditorSpread]null==null
+[INFO][2016-07-14 16:35:34,469][com.sirding.test.TestIniEditorSpread]null==null
+[INFO][2016-07-14 16:35:34,469][com.sirding.test.TestIniEditorSpread]null==null
+[INFO][2016-07-14 16:35:34,473][com.sirding.test.TestIniEditorSpread]null==null
+[INFO][2016-07-14 16:35:34,476][com.sirding.test.TestIniEditorSpread]null==null
