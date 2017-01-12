@@ -3,9 +3,8 @@ package com.sirding.singleton;
 import com.sirding.service.SecService;
 import com.sirding.service.impl.SecServiceImpl;
 /**
- * 入口程序
+ * 
  * @author zc.ding
- * @date 2016-06-23
  *
  */
 public class IniTool extends SecServiceImpl implements SecService{
@@ -16,4 +15,6 @@ public class IniTool extends SecServiceImpl implements SecService{
 	public static IniTool newInstance(){
 		return INITOOL;
 	}
+	
+	
 }

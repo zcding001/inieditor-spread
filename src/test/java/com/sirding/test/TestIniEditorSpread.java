@@ -28,7 +28,7 @@ public class TestIniEditorSpread {
 	@Test
 	public void testAddSimple(){
 		try {
-			Simple obj = new Simple("three", "three", 3, "hello world，你好，世界");
+			Simple obj = new Simple("three444", "three", 3, "myhello world，你好，世界");
 			iniTool.saveSec(obj, simplePath);
 		} catch (Exception e) {
 			e.printStackTrace();

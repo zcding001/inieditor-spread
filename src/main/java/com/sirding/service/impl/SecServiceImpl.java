@@ -2,6 +2,7 @@ package com.sirding.service.impl;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 
@@ -62,7 +63,7 @@ public class SecServiceImpl implements SecService {
 		return new ArrayList<E>();
 	}
 
-	public synchronized <E> List<E> loadSec(Class<?> clazz, String flag, String... params) throws Exception {
+	public synchronized <E> List<E> loadSec(Class<?> clazz, boolean flag, String... params) throws Exception {
 		Object obj = clazz.newInstance();
 		String filePath = (String)ReflectUtil.getFieldValue(obj, FILE_PATH);
 		if(this.filePathIsExist(filePath)){
@@ -79,7 +80,7 @@ public class SecServiceImpl implements SecService {
 		return list;
 	}
 	
-	public <E> List<E> loadSec(Class<?> clazz, String filePath, String flag, String... params) throws Exception {
+	public <E> List<E> loadSec(Class<?> clazz, String filePath, boolean flag, String... params) throws Exception {
 		logger.debug("从【" + filePath + "】文件中加载配置信息");
 		IniEditor iniEditor = new IniEditor(true);
 		iniEditor.load(filePath);
@@ -91,8 +92,12 @@ public class SecServiceImpl implements SecService {
 		return this.getSections(iniEditor, null, clazz, null);
 	}
 
-	public <E> List<E> loadSec(Class<?> clazz, IniEditor iniEditor, String flag, String... params) throws Exception {
-		return this.getSections(iniEditor, null, clazz, flag, params);
+	public <E> List<E> loadSec(Class<?> clazz, IniEditor iniEditor, boolean flag, String... params) throws Exception {
+		String flagTmp = "0";
+		if(flag){
+			flagTmp = "1";
+		}
+		return this.getSections(iniEditor, null, clazz, flagTmp, params);
 	}
 
 	public <E> List<E> loadSec(Object obj) throws Exception {
@@ -105,7 +110,7 @@ public class SecServiceImpl implements SecService {
 		return new ArrayList<E>();
 	}
 
-	public <E> List<E> loadSec(Object obj, String flag, String... params) throws Exception {
+	public <E> List<E> loadSec(Object obj, boolean flag, String... params) throws Exception {
 		if(obj != null){
 			String filePath = (String)ReflectUtil.getFieldValue(obj, FILE_PATH);
 			if(this.filePathIsExist(filePath)){
@@ -126,7 +131,7 @@ public class SecServiceImpl implements SecService {
 		return new ArrayList<E>();
 	}
 
-	public <E> List<E> loadSec(Object obj, String filePath, String flag, String... params) throws Exception {
+	public <E> List<E> loadSec(Object obj, String filePath, boolean flag, String... params) throws Exception {
 		logger.debug("从【" + filePath + "】文件中加载配置信息");
 		if(obj != null){
 			IniEditor iniEditor = new IniEditor(true);
@@ -145,10 +150,14 @@ public class SecServiceImpl implements SecService {
 	}
 
 	/**
-	 * 加载配置问价关键接口
+	 * 加载配置文件关键接口
 	 */
-	public <E> List<E> loadSec(Object obj, IniEditor iniEditor, String flag, String... params) throws Exception {
-		return this.getSections(iniEditor, obj, null, flag, params);
+	public <E> List<E> loadSec(Object obj, IniEditor iniEditor, boolean flag, String... params) throws Exception {
+		String flagTmp = "0";
+		if(flag){
+			flagTmp = "1";
+		}
+		return this.getSections(iniEditor, obj, null, flagTmp, params);
 	}
 	
 	/**
@@ -427,6 +436,9 @@ public class SecServiceImpl implements SecService {
 				for(String name : map.keySet()){
 					Object value = map.get(name).getValue();
 					Field sectionOptionsField = sectionField.getSectionOptionsMap().get(name);
+					if(sectionOptionsField == null){
+						logger.error("找不到【" + name +"】对应的属性");
+					}
 					ReflectUtil.callSetMethod(obj, sectionOptionsField, value);
 				}
 				//解析complate
@@ -538,5 +550,100 @@ public class SecServiceImpl implements SecService {
 			e.printStackTrace();
 		}
 		return new ArrayList<E>();
+	}
+
+	@Override
+	public <E> E loadSingleSec(Class<?> clazz) throws Exception {
+		List<E> list = this.loadSec(clazz);
+		if(list != null && list.size() > 0){
+			return list.get(0);
+		}
+		return null;
+	}
+
+	@Override
+	public <E> E loadSingleSec(Class<?> clazz, boolean flag, String... params) throws Exception {
+		List<E> list = this.loadSec(clazz, flag, params);
+		if(list != null && list.size() > 0){
+			return list.get(0);
+		}
+		return null;
+	}
+
+	@Override
+	public <E> E loadSingleSec(Class<?> clazz, String filePath) throws Exception {
+		List<E> list = this.loadSec(clazz, filePath);
+		if(list != null && list.size() > 0){
+			return list.get(0);
+		}
+		return null;
+	}
+
+	@Override
+	public <E> E loadSingleSec(Class<?> clazz, String filePath, boolean flag, String... params) throws Exception {
+		List<E> list = this.loadSec(clazz, filePath, flag, params);
+		if(list != null && list.size() > 0){
+			return list.get(0);
+		}
+		return null;
+	}
+
+	@Override
+	public <E> E loadSingleSec(Class<?> clazz, IniEditor iniEditor) throws Exception {
+		List<E> list = this.loadSec(clazz, iniEditor);
+		if(list != null && list.size() > 0){
+			return list.get(0);
+		}
+		return null;
+	}
+
+	@Override
+	public <E> E loadSingleSec(Class<?> clazz, IniEditor iniEditor, boolean flag, String... params) throws Exception {
+		List<E> list = this.loadSec(clazz, iniEditor, flag, params);
+		if(list != null && list.size() > 0){
+			return list.get(0);
+		}
+		return null;
+	}
+
+	@Override
+	public void remoteSec(String secs, String filePath) throws Exception {
+		logger.debug("将【" + secs + "】从【" + filePath + "】配置文件中删除...");
+		IniEditor iniEditor = new IniEditor(true);
+		iniEditor.load(filePath);
+		this.remoteSec(secs, iniEditor);
+		iniEditor.save(filePath);
+	}
+
+	@Override
+	public void remoteSec(String secs, IniEditor iniEditor) throws Exception {
+		if(secs != null){
+			String[] arr = secs.split(",");
+			if(arr != null){
+				for(String sec : arr){
+					iniEditor.removeSection(sec);
+				}
+			}
+		}
+	}
+
+	@Override
+	public Map<String, String> loadSec(String filePath, String sec) throws Exception {
+		logger.debug("将【" + sec + "】从【" + filePath + "】读入到Map中");
+		IniEditor iniEditor = new IniEditor(true);
+		iniEditor.load(filePath);
+		return loadSec(iniEditor, sec);
+	}
+
+	@Override
+	public Map<String, String> loadSec(IniEditor iniEditor, String sec) throws Exception {
+		Map<String, String> map = new Hashtable<String, String>();
+		List<String> list = iniEditor.optionNames(sec);
+		if(list != null){
+			for(String optionName : list){
+				map.put(optionName, iniEditor.get(sec, optionName));
+			}
+		}
+		return map;
 	}
 }
