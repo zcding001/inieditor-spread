@@ -265,6 +265,4 @@ public interface SecService {
 	 */
 	public Map<String, String> loadSec(IniEditor iniEditor, String sec) throws Exception ;
 	
-	
-	
 }
