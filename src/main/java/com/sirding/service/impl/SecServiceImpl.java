@@ -2,6 +2,7 @@ package com.sirding.service.impl;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 
@@ -624,5 +625,25 @@ public class SecServiceImpl implements SecService {
 				}
 			}
 		}
+	}
+
+	@Override
+	public Map<String, String> loadSec(String filePath, String sec) throws Exception {
+		logger.debug("将【" + sec + "】从【" + filePath + "】读入到Map中");
+		IniEditor iniEditor = new IniEditor(true);
+		iniEditor.load(filePath);
+		return loadSec(iniEditor, sec);
+	}
+
+	@Override
+	public Map<String, String> loadSec(IniEditor iniEditor, String sec) throws Exception {
+		Map<String, String> map = new Hashtable<String, String>();
+		List<String> list = iniEditor.optionNames(sec);
+		if(list != null){
+			for(String optionName : list){
+				map.put(optionName, iniEditor.get(sec, optionName));
+			}
+		}
+		return map;
 	}
 }

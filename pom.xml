@@ -4,7 +4,7 @@
 
 	<groupId>com.sirding</groupId>
 	<artifactId>inieditor-spread</artifactId>
-	<version>1.0.0-releases</version>
+	<version>1.1.0-releases</version>
 	<packaging>jar</packaging>
 	<name>inieditor-spread</name>
 	<description>A small library to read and edit INI-style configuration files</description>

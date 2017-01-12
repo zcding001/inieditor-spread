@@ -1,6 +1,7 @@
 package com.sirding.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.sirding.thirdjar.IniEditor;
 
@@ -240,4 +241,30 @@ public interface SecService {
 	 * @return
 	 */
 	public <E> List<E> loadListForTest(Class<?> clazz);  
+	
+	
+	/**
+	 * @Described			: 加载指定节点下的所有属性到Map<String, String>中<br/>
+	 * @author				: zc.ding
+	 * @date 				: 2017年1月12日
+	 * @param 				: filePath 文件路径
+	 * @param 				: sec节点名称
+	 * @return
+	 * @throws Exception
+	 */
+	public Map<String, String> loadSec(String filePath, String sec) throws Exception ;
+	
+	/**
+	 * @Described			: 加载指定节点下的所有属性到Map<String, String>中<br/>
+	 * @author				: zc.ding
+	 * @date 				: 2017年1月12日
+	 * @param 				: iniEditor
+	 * @param 				: sec节点名称
+	 * @return
+	 * @throws Exception
+	 */
+	public Map<String, String> loadSec(IniEditor iniEditor, String sec) throws Exception ;
+	
+	
+	
 }
